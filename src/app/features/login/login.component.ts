@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  showPassword: boolean = false;
   credentials = { username: '', password: '' };
   errorMessage = '';
 
@@ -25,5 +26,8 @@ export class LoginComponent {
         console.error('Error al iniciar sesión:', err);
       }
     });
+  }
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword; // Alterna entre true y false
   }
 }
