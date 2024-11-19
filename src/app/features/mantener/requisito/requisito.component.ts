@@ -8,9 +8,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
-import { Requisito } from '../../../models/requisito';
-import { RequisitoService } from '../../../services/requisito.service';
 import { MessageService } from 'primeng/api';
+import { RequisitoService } from '../../../core/services/requisito.service';
+import { Requisito } from '../../../shared/models/requisito';
 
 @Component({
   selector: 'app-requisito',
