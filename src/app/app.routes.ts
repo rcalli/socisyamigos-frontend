@@ -1,27 +1,26 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { EvaluacionComponent } from './components/mantener/evaluacion/evaluacion.component';
-import { RequisitoComponent } from './components/mantener/requisito/requisito.component';
+import { AuthGuard } from './core/auth.guard';
+import { LoginComponent } from './features/login/login.component';
 
 export const routes: Routes = [
     {
-        path:'',
-        component: HomeComponent,
-        title:'home'
+        path: 'home',
+        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+        canActivate: [AuthGuard]
     },
     {
-        path:'evaluacion',
-        component:EvaluacionComponent,
-        title:'evaluacion'
+        path: 'evaluacion',
+        loadChildren: () => import('././features/mantener/evaluacion/evaluacion.module').then(m => m.EvaluacionModule),
+        canActivate: [AuthGuard],
+        title: 'evaluacion'
     },
     {
-        path:'requisito',
-        component:RequisitoComponent,
-        title:'requisito'
+        path: 'login',
+        loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule)
     },
     {
-        path:'**',
-        redirectTo:'',
-        pathMatch:'full'
+        path: '**',
+        redirectTo: 'home'
     }
-];
+  ];
+
