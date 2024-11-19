@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Evaluacion } from '../../../models/evaluacion';
-import { EvaluacionService } from '../../../services/evaluacion.service';
+import { Evaluacion } from '../../../shared/models/evaluacion';
+import { EvaluacionService } from '../../../core/services/evaluacion.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -11,12 +11,13 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-evaluacion',
   standalone: true,
   imports: [TableModule, ButtonModule,DialogModule,RouterModule,InputTextModule,
-    FormsModule,ConfirmDialogModule,ToastModule, DropdownModule],
+    FormsModule,ConfirmDialogModule,ToastModule, DropdownModule, CommonModule],
   templateUrl: './evaluacion.component.html',
   styleUrl: './evaluacion.component.css'
 })
