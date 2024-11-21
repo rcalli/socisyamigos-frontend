@@ -3,8 +3,8 @@ import { AuthGuard } from './core/auth.guard';
 
 export const routes: Routes = [
     {
-        path: 'home',
-        loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+        path: 'consultar-estudiante',
+        loadChildren: () => import('./features/consultar/estudiante/consultar-estudiante.module').then(m => m.ConsultarEstudianteModule),
         canActivate: [AuthGuard]
     },
     {
@@ -25,7 +25,7 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'consultar-estudiante'
     }
   ];
 

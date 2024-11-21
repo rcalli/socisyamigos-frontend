@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Rol } from '../../shared/models/rol';
 
 @Injectable({
   providedIn: 'root',
@@ -59,5 +60,9 @@ export class AuthService {
 
   getUserIdByUsername(username: string): Observable<number> {
     return this.http.get<number>(`${this.apiUrluser}/id-by-username/${username}`);
+  }
+
+  getRolesByUsername(username: string): Observable<Rol[]> {
+    return this.http.get<Rol[]>(`${this.apiUrluser}/roles/${username}`);
   }
 }
