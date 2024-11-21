@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:8080/api/auth';
+  private apiUrluser = 'http://localhost:8080/api/usuarios';
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +30,34 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem('authToken'); // Comprueba si hay un token
+  }
+
+  /**
+   * Decodifica el token JWT para extraer el payload
+   */
+  private decodeToken(token: string): any {
+    try {
+      const payload = token.split('.')[1]; // El payload está en la segunda parte del token
+      return JSON.parse(atob(payload)); // Decodifica el payload desde Base64
+    } catch (e) {
+      console.error('Error al decodificar el token:', e);
+      return null;
+    }
+  }
+
+  /**
+   * Obtiene el username del usuario actual desde el token JWT
+   */
+  getCurrentUsername(): string | null {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded?.sub || null; // Extrae el campo `sub` del token (que representa el username)
+    }
+    return null;
+  }
+
+  getUserIdByUsername(username: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUrluser}/id-by-username/${username}`);
   }
 }

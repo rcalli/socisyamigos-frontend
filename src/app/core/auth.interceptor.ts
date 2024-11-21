@@ -40,7 +40,6 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           console.error('Error 401: Token inválido o expirado');
           // Redirige al login si es necesario
-          this.router.navigate(['/login']);
         }
         if (error.status === 403) {
           console.error('Error 403: Acceso denegado');
