@@ -8,6 +8,11 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'validar-coordinador',
+        loadChildren: () => import('./features/validar/validar-coordinador.module').then(m => m.ValidarCoordinadorModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'evaluacion',
         loadChildren: () => import('././features/mantener/evaluacion/evaluacion.module').then(m => m.EvaluacionModule),
         canActivate: [AuthGuard],

@@ -1,7 +1,7 @@
 <div class="container">
   <!-- Encabezado -->
   <div class="header">
-    <h1>Estado del práctica</h1>
+    <h1>Estado de la práctica</h1>
     <select>
       <option *ngFor="let ppp of detallesPPP" [value]="ppp.ppp.id">PPP {{ ppp.ppp.id }}</option>
     </select>
@@ -17,9 +17,9 @@
         </div>
         <div class="requisito-acciones">
           <button class="estado-btn" [ngClass]="{
-          completado: detalle.estado === 1,
-          pendiente: detalle.estado === 0,
-          rechazado: detalle.estado === 2
+          completado: detalle.estado === 2,
+          pendiente: detalle.estado === 1,
+          rechazado: detalle.estado === 3
         }" disabled>
             {{ detalle.estado === 1 ? 'Completado' : detalle.estado === 2 ? 'Rechazado' : 'Pendiente' }}
           </button>
