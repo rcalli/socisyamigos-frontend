@@ -21,7 +21,7 @@
           pendiente: detalle.estado === 1,
           rechazado: detalle.estado === 3
         }" disabled>
-            {{ detalle.estado === 1 ? 'Completado' : detalle.estado === 2 ? 'Rechazado' : 'Pendiente' }}
+            {{ detalle.estado === 2 ? 'Completado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
           </button>
         </div>
       </div>

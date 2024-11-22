@@ -30,26 +30,40 @@ export class ValidarDocsInicioComponent implements OnInit{
     });
 
     // Obtener documentos cargados
-    this.pppService.getDocumentosByPPP(this.idPPP).subscribe((docs) => {
-      this.documentos = docs;
-    });
+    //this.pppService.getDocumentosByPPP(this.idPPP).subscribe((docs) => {
+    //  this.documentos = docs;
+    //});
     
   }
   volver() {
     this.router.navigate(['/validar-coordinador']); // Cambia '/ruta-anterior' por la ruta a la que deseas redirigir.
   }
 
-  // Función para el botón "Aceptar"
   aceptar() {
-    // Lógica para aceptar (por ejemplo, enviar datos al backend).
-    console.log('Acción de aceptar ejecutada.');
-    alert('¡Solicitud aceptada!');
+    this.pppService.aceptarPPP(this.idPPP).subscribe({
+      next: (response) => {
+        alert('PPP aceptada exitosamente.');
+        console.log('Respuesta del servidor:', response);
+        this.router.navigate(['/validar-coordinador']); // Redirigir después de aceptar
+      },
+      error: (error) => {
+        console.error('Error al aceptar la PPP:', error);
+        alert('Hubo un error al aceptar la PPP.');
+      }
+    });
   }
 
-  // Función para el botón "Rechazar"
   rechazar() {
-    // Lógica para rechazar (por ejemplo, enviar datos al backend).
-    console.log('Acción de rechazar ejecutada.');
-    alert('Solicitud rechazada.');
+    this.pppService.rechazarPPP(this.idPPP).subscribe({
+      next: (response) => {
+        alert('PPP rechazada exitosamente.');
+        console.log('Respuesta del servidor:', response);
+        this.router.navigate(['/validar-coordinador']); // Redirigir después de rechazar
+      },
+      error: (error) => {
+        console.error('Error al rechazar la PPP:', error);
+        alert('Hubo un error al rechazar la PPP.');
+      }
+    });
   }
 }

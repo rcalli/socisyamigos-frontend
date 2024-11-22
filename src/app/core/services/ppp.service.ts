@@ -18,7 +18,15 @@ export class PPPService {
     return this.http.get(`${this.apiUrl}/detalle/${idPPP}`);
   }
   
-  getDocumentosByPPP(idPPP: number): Observable<any[]> {
-    return this.http.get<any[]>(`/api/documentos/ppp/${idPPP}`);
+  //getDocumentosByPPP(idPPP: number): Observable<any[]> {
+    //return this.http.get<any[]>(`${this.apiUrl}/documentos/ppp/${idPPP}`);
+  //}
+
+  aceptarPPP(idPPP: number) {
+    return this.http.put(`${this.apiUrl}/${idPPP}/aceptar`, {}, { responseType: 'text' });
   }
+
+  rechazarPPP(idPPP: number) {
+    return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, {}, { responseType: 'text' });
+  }  
 }
