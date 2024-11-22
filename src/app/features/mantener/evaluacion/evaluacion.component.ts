@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { ConfirmDialogModule } from 'primeng/confirmdialog'; 
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
@@ -28,7 +28,7 @@ export class EvaluacionComponent {
   evaluacion=new Evaluacion();
   titulo:string='';
   opc:string='';
-  op = 0; 
+  op = 0;
   constructor(
     private evaluacionService: EvaluacionService,
     private messageService: MessageService
@@ -43,18 +43,18 @@ export class EvaluacionComponent {
   }
   showDialogCreate(){
     this.titulo="Crear Evaluacion"
-    this.opc="Save";   
+    this.opc="Save";
     this.op=0;
-    this.visible = true; // Cambia la visibilidad del diálogo
+    this.visible = true; // Cambia la visibilidad
   }
   showDialogEdit(id:number){
     this.titulo="Editar Evaluacion"
-    this.opc="Editar"; 
+    this.opc="Editar";
    this.evaluacionService.getEvaluacionById(id).subscribe((data)=>{
-      this.evaluacion=data; 
-      this.op=1;     
-   });    
-    this.visible = true; // Cambia la visibilidad del diálogo
+      this.evaluacion=data;
+      this.op=1;
+   });
+    this.visible = true; // Cambia la visibilidad
   }
   deleteEvaluacion(id:number){
     this.isDeleteInProgress = true;
@@ -110,7 +110,7 @@ export class EvaluacionComponent {
           detail: 'No se pudo Crear la Evaluacion',
         });
       },
-    });    
+    });
     this.visible = false;
   }
   editEvaluacion(){
@@ -132,13 +132,13 @@ export class EvaluacionComponent {
           detail: 'No se pudo Editar la Evaluacion',
         });
       },
-    });    
+    });
     this.visible = false;
   }
   limpiar(){
     this.titulo='';
     this.opc='';
-    this.op = 0; 
+    this.op = 0;
     this.evaluacion.id=0;
     this.evaluacion.nombre='';
     this.evaluacion.estado=0;
