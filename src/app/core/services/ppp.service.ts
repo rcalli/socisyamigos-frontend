@@ -13,4 +13,12 @@ export class PPPService {
   getFilteredPPPs(processName: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/filtered/${processName}`);
   }
+  
+  getEstudianteDetalle(idPPP: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/detalle/${idPPP}`);
+  }
+  
+  getDocumentosByPPP(idPPP: number): Observable<any[]> {
+    return this.http.get<any[]>(`/api/documentos/ppp/${idPPP}`);
+  }
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { PPPService } from '../../core/services/ppp.service';
+import { PPPService } from '../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-validar-coordinador',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './validar-coordinador.component.html',
   styleUrl: './validar-coordinador.component.css'
 })

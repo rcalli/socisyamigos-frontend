@@ -9,7 +9,12 @@ export const routes: Routes = [
     },
     {
         path: 'validar-coordinador',
-        loadChildren: () => import('./features/validar/validar-coordinador.module').then(m => m.ValidarCoordinadorModule),
+        loadChildren: () => import('./features/coordinador/validar-docs/consultar-validar/validar-coordinador.module').then(m => m.ValidarCoordinadorModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'validar-docs-inicio/:idPPP',
+        loadChildren: () => import('./features/coordinador/validar-docs/validar-docs-inicio/validar-docs-inicio.module').then(m => m.ValidarDocsInicioModule),
         canActivate: [AuthGuard]
     },
     {

@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Solicitud Documentos Inicio PPP</h1>
+  <h2>Datos Estudiante:</h2>
+  <div class="info-section">
+    <p><strong>Estudiante:</strong> {{ estudiante.nombre }}</p>
+    <p><strong>DNI:</strong> {{ estudiante.dni }}</p>
+    <p><strong>Programa de estudio por plan:</strong> {{ estudiante.programa }}</p>
+    <p><strong>Plan:</strong> {{ estudiante.plan }}</p>
+    <p><strong>Línea de trabajo:</strong> {{ estudiante.lineaTrabajo }}</p>
+    <p><strong>Dirección de domicilio:</strong> {{ estudiante.direccion }}</p>
+    <p><strong>Código:</strong> {{ estudiante.codigo }}</p>
+    <p><strong>Correo:</strong> {{ estudiante.correo }}</p>
+    <p><strong>Teléfono:</strong> {{ estudiante.telefono }}</p>
+  </div>
+  <div class="buttons">
+    <button class="volver" (click)="volver()">Volver</button>
+    <button class="aceptar" (click)="aceptar()">Aceptar</button>
+    <button class="rechazar" (click)="rechazar()">Rechazar</button>
+  </div>
+</div>
