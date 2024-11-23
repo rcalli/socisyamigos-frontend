@@ -1,5 +1,6 @@
 import { Empresa } from "./empresa";
 import { LineaCarrera } from "./linea-carrera";
+import { Matricula } from "./matricula.model";
 import { Supervisor } from "./supervisor";
 
 
@@ -8,6 +9,7 @@ export class PPP {
   empresa: Empresa;
   linea_carrera: LineaCarrera;
   supervisor: Supervisor;
+  matricula: Matricula
   fechaInicio: string; // Puede cambiar a Date
   fechaFin: string;
   horas: number;
@@ -19,6 +21,7 @@ export class PPP {
     empresa: Empresa = new Empresa(),
     linea_carrera: LineaCarrera = new LineaCarrera(),
     supervisor: Supervisor = new Supervisor(),
+    matricula: Matricula = new Matricula,
     fechaInicio: string = '',
     fechaFin: string = '',
     horas: number = 0,
@@ -29,6 +32,7 @@ export class PPP {
     this.empresa = empresa;
     this.linea_carrera = linea_carrera;
     this.supervisor = supervisor;
+    this.matricula = matricula
     this.fechaInicio = fechaInicio;
     this.fechaFin = fechaFin;
     this.horas = horas;

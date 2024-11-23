@@ -1,1 +1,47 @@
-<p>consultar-asignar works!</p>
+<div class="container">
+    <h1>Asignar Supervisor</h1>
+  
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar estudiante..." />
+      <button><i class="fa fa-filter"></i></button>
+      <button><i class="fa fa-sort"></i></button>
+    </div>
+  
+    <div *ngIf="loading">Cargando datos...</div>
+    <div *ngIf="error">{{ error }}</div>
+  
+    <div *ngIf="!loading && !error" class="cards-container">
+      <div *ngFor="let ppp of pppList" class="card">
+        <div class="card-content">
+          <div class="details">
+            <p><strong>Estudiante:</strong> {{ ppp.supervisor.persona.nombre }} {{ ppp.supervisor.persona.apepat }} {{ ppp.supervisor.persona.apemat }}</p>
+            <p><strong>Código:</strong> {{ ppp.matricula.estudiante.codigo }}</p>
+            <p><strong>Empresa:</strong> {{ ppp.empresa.nombre }}</p>
+            <p><strong>Correo de Empresa:</strong> {{ ppp.empresa.email }}</p>
+            <p><strong>Supervisor:</strong> {{ ppp.supervisor.persona.nombre }}</p>
+            <p><strong>Fecha de Inicio:</strong> {{ ppp.fechaInicio | date }}</p>
+          </div>
+          <div class="status">
+            <span
+              [ngClass]="{
+                'estado-pendiente': ppp.estado === 3,
+                'estado-supervisor': ppp.estado === 5,
+                'estado-cronograma': ppp.estado === 6
+              }"
+            >
+              {{ ppp.estado === 3 ? 'Pendiente' : 'Pendiente' }}
+            </span>
+            <div class="buttons">
+              <button class="calendar-btn" [routerLink]="['/asignar-cronograma-ppp', ppp.id]">
+                <i class="fa fa-calendar"></i>
+              </button>
+              <button class="edit-btn" [routerLink]="['/asignar-supervisor-ppp', ppp.id]">
+                <i class="fa fa-pencil"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

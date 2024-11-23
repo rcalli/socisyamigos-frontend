@@ -1,0 +1,124 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  .search-bar button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-bar button i {
+    font-size: 16px;
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .details p strong {
+    font-weight: bold;
+  }
+  
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  .status span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4caf50; /* Color verde para "Completado" */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .status span::before {
+    content: "✔"; /* Checkmark */
+    font-size: 16px;
+    color: #4caf50;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  button {
+    border: none;
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button i {
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  

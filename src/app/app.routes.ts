@@ -18,6 +18,21 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'consultar-asignar',
+        loadChildren: () => import('./features/coordinador/asignar-supervisor/consultar-asignar/consultar-asignar.module').then(m => m.ConsultarAsignarModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'asignar-cronograma-ppp/:idPPP',
+        loadChildren: () => import('./features/coordinador/asignar-supervisor/asignar-cronograma-a-ppp/asignar-cronograma-a-ppp.module').then(m => m.AsignarCronogramaPPPModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'asignar-supervisor-ppp/:idPPP',
+        loadChildren: () => import('./features/coordinador/asignar-supervisor/asignar-supervisor-a-ppp/asignar-supervisor-a-ppp.module').then(m => m.AsignarSupervisorPPPModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'evaluacion',
         loadChildren: () => import('././features/mantener/evaluacion/evaluacion.module').then(m => m.EvaluacionModule),
         canActivate: [AuthGuard],

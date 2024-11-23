@@ -14,6 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(credentials: { username: string; password: string }): Observable<any> {
+    localStorage.removeItem('authToken');
     return this.http.post<{ accessToken: string }>(`${this.apiUrl}/login`, credentials).pipe(
       tap((response) => {
         if (response.accessToken) {
@@ -45,7 +46,7 @@ export class AuthService {
       return null;
     }
   }
-  
+
   private isTokenExpired(token: string): boolean {
     try {
       const payload = token.split('.')[1]; // El payload está en la segunda parte del token

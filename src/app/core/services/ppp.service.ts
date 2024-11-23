@@ -29,4 +29,8 @@ export class PPPService {
   rechazarPPP(idPPP: number) {
     return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, {}, { responseType: 'text' });
   }  
+
+  getPPPsByEstado(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/estado`);
+  }
 }
