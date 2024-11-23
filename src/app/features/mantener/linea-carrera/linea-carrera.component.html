@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>Linea Carrera Management</h2>
+
+  <!-- List of Linea_Carreras -->
+  <table>
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Carrera</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let lineaCarrera of lineaCarreras">
+      <td>{{ lineaCarrera.nombre }}</td>
+      <td>{{ lineaCarrera.estado }}</td>
+      <td>{{ lineaCarrera.carrera.nombre }}</td>
+      <td>
+        <button (click)="selectLineaCarrera(lineaCarrera)">Edit</button>
+        <button (click)="deleteLineaCarrera(lineaCarrera.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Form for creating/updating -->
+  <div *ngIf="selectedLineaCarrera">
+    <h3>{{ selectedLineaCarrera.id ? 'Edit' : 'Create' }} Linea Carrera</h3>
+    <form (ngSubmit)="saveLineaCarrera()">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        [(ngModel)]="selectedLineaCarrera.nombre"
+        name="nombre"
+        required
+      />
+
+      <label for="estado">Estado:</label>
+      <input
+        type="number"
+        id="estado"
+        [(ngModel)]="selectedLineaCarrera.estado"
+        name="estado"
+        required
+      />
+
+      <label for="carrera">Carrera:</label>
+      <select
+        id="carrera"
+        [(ngModel)]="selectedLineaCarrera.carrera"
+        name="carrera"
+        required
+      >
+        <option *ngFor="let carrera of carreras" [ngValue]="carrera">
+          {{ carrera.nombre }}
+        </option>
+      </select>
+
+      <button type="submit">Save</button>
+      <button type="button" (click)="selectedLineaCarrera = null">Cancel</button>
+    </form>
+  </div>
+
+  <button (click)="newLineaCarrera()">New Linea Carrera</button>
+</div>

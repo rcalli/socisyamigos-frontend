@@ -1,29 +1,24 @@
-import { Matricula } from './matricula.model';
+import { Persona } from "./persona";
+import { Matricula } from "./matricula.model";
 
-export interface Estudiante {
-  id: number;
+export class Estudiante {
+  idestudiante: number;
+  persona: Persona;
   codigo: string;
-  nombre: string;
-  apellido: string;
-  dni: string;
-  matriculas: {
-    id: number;
-    horasTotales: number;
-    anio: number;
-    estado: number; // 1 para activa, 0 para inactiva
-    ppps: {
-      id: number;
-      fechaInicio: string; // Puede ser un Date si deseas trabajar con fechas directamente
-      fechaFin: string;
-      horas: number;
-      promedio: number;
-      estado: number; // 1 para activa, 0 para inactiva
-      detalles: {
-        id: number;
-        requisito: string;
-        estado: number; // 1 para completado, 0 para pendiente
-      }[];
-    }[];
-  }[];
-}
+  estado: number;
+  matriculas: Set<Matricula>;
 
+  constructor(
+    idestudiante: number = 0,
+    persona: Persona = new Persona(),
+    codigo: string = '',
+    estado: number = 0,
+    matriculas: Set<Matricula> = new Set<Matricula>()
+  ) {
+    this.idestudiante = idestudiante;
+    this.persona = persona;
+    this.codigo = codigo;
+    this.estado = estado;
+    this.matriculas = matriculas;
+  }
+}
