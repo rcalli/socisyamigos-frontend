@@ -33,6 +33,13 @@ export const routes: Routes = [
         path: 'login',
         loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule)
     },
+  {
+    path: 'linea-carrera',
+    loadChildren: () => import('./features/mantener/linea-carrera/linea-carrera.module').then(m => m.LineaCarreraModule),
+    canActivate: [AuthGuard],
+    title: 'linea-carrera'
+  },
+
     {
         path: '**',
         redirectTo: 'consultar-estudiante'
