@@ -52,19 +52,6 @@ export class ConsultarEstudianteComponent {
       // Redirigir al login si es necesario
     }
   }
-  
-  private loadUserDetails(username: string): void {
-    this.authService.getUserIdByUsername(username).subscribe(
-      (userId) => {
-        console.log('ID del usuario obtenido:', userId);
-        this.fetchDetallesPPP(userId); // Consultar detalles de PPP
-      },
-      (error) => {
-        console.error('Error al obtener el ID del usuario:', error);
-      }
-    );
-  }
-
 
   // Método de ejemplo para el evento click
   onComplete(detalle: DetallePPP): void {
