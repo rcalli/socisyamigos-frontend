@@ -18,11 +18,11 @@ export class PPPService {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  
+
   getEstudianteDetalle(idPPP: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/detalle/${idPPP}`);
   }
-  
+
   //getDocumentosByPPP(idPPP: number): Observable<any[]> {
     //return this.http.get<any[]>(`${this.apiUrl}/documentos/ppp/${idPPP}`);
   //}
@@ -35,7 +35,7 @@ export class PPPService {
   // Método para rechazar PPP (puedes implementarlo si es necesario)
   rechazarPPP(idPPP: number, payload: { estadoPPP: number; estadoDetallePPP: number; procesoNombre: string  }): Observable<any> {
     return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, payload);
-  } 
+  }
 
   getPPPsByEstado(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/estado`);
