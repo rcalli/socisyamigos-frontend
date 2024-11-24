@@ -59,7 +59,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           console.error('Error 401: Token inválido o expirado');
           //localStorage.removeItem('authToken'); // Limpia el token
-          this.router.navigate(['**']); // Redirige al **
+          //this.router.navigate(['**']); // Redirige al **
         }
         if (error.status === 403) {
           console.error('Error 403: Acceso denegado');

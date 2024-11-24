@@ -13,6 +13,11 @@ export class PPPService {
   getFilteredPPPs(processName: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/filtered/${processName}`);
   }
+
+  getPppById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
   
   getEstudianteDetalle(idPPP: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/detalle/${idPPP}`);
@@ -22,13 +27,15 @@ export class PPPService {
     //return this.http.get<any[]>(`${this.apiUrl}/documentos/ppp/${idPPP}`);
   //}
 
-  aceptarPPP(idPPP: number) {
-    return this.http.put(`${this.apiUrl}/${idPPP}/aceptar`, {}, { responseType: 'text' });
+  // Método para aceptar PPP con estados dinámicos
+  aceptarPPP(idPPP: number, payload: { estadoPPP: number; estadoDetallePPP: number; procesoNombre: string }): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${idPPP}/aceptar`, payload);
   }
 
-  rechazarPPP(idPPP: number) {
-    return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, {}, { responseType: 'text' });
-  }  
+  // Método para rechazar PPP (puedes implementarlo si es necesario)
+  rechazarPPP(idPPP: number, payload: { estadoPPP: number; estadoDetallePPP: number; procesoNombre: string  }): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, payload);
+  } 
 
   getPPPsByEstado(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/estado`);

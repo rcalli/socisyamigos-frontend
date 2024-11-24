@@ -33,19 +33,24 @@
       <div class="rol-card" *ngIf="roles.length > 0">
         <div class="rol-header">{{ currentRole }}</div> <!-- Muestra el rol principal -->
         <div class="rol-name">
-          {{ detallesPPP[0].persona.nombre }} {{ detallesPPP[0].persona.apepat }} {{ detallesPPP[0].persona.apemat }}
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.nombre }}
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.apepat }}
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.apemat }}
         </div>
       </div>
 
       <!-- Información Principal -->
       <div class="info-item"><strong>Empresa:</strong> {{ detallesPPP[0].ppp.empresa.nombre }}</div>
-      <div class="info-item">
-        <strong>Supervisor:</strong>
-        {{ detallesPPP[0].ppp.supervisor.persona.nombre }}
-        {{ detallesPPP[0].ppp.supervisor.persona.apepat }}
-      </div>
       <div class="info-item"><strong>Fecha Inicio:</strong> {{ detallesPPP[0].ppp.fechaInicio | date }}</div>
       <div class="info-item"><strong>Fecha Fin:</strong> {{ detallesPPP[0].ppp.fechaFin | date }}</div>
+      <div class="info-item" *ngIf="detallesPPP[0].ppp?.supervisor?.persona">
+        <strong>Supervisor:</strong>
+        {{ detallesPPP[0].ppp.supervisor.persona.nombre || 'No asignado' }}
+        {{ detallesPPP[0].ppp.supervisor.persona.apepat || '' }}
+      </div>
+      <div class="info-item" *ngIf="!detallesPPP[0].ppp?.supervisor?.persona">
+        <strong>Supervisor:</strong> No asignado
+      </div>
     </div>
   </div>
 </div>

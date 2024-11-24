@@ -2,7 +2,7 @@ import { Plan } from "./plan";
 import { Carrera } from "./carrera";
 import { Persona } from "./persona";
 // import { Plan_Evaluacion } from "./plan-evaluacion";
-import { Matricula } from "./matricula.model";
+import { Matricula } from "./matricula";
 // import { Proceso_Requisito } from "./proceso-requisito";
 
 export class Plan_Carrera {

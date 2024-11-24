@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PPPService } from '../../../../core/services/ppp.service';
+import { PPPService } from '../../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

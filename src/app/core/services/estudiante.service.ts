@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Estudiante} from '../../shared/models/estudiante.model';
+import {Estudiante} from '../../shared/models/estudiante';
 
 
 

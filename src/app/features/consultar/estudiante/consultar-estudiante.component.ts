@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DetallePPPService } from '../../../core/services/detalle-ppp.service';
-import { DetallePPP } from '../../../shared/models/detalle-ppp.model';
+import { DetallePPP } from '../../../shared/models/detalle-ppp';
 import { AuthService } from '../../../core/services/auth.service';
 import { Rol } from '../../../shared/models/rol';
 

@@ -1,6 +1,6 @@
 import { Empresa } from "./empresa";
 import { LineaCarrera } from "./linea-carrera";
-import { Matricula } from "./matricula.model";
+import { Matricula } from "./matricula";
 import { Supervisor } from "./supervisor";
 
 

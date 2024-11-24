@@ -14,11 +14,11 @@
       <div *ngFor="let ppp of pppList" class="card">
         <div class="card-content">
           <div class="details">
-            <p><strong>Estudiante:</strong> {{ ppp.supervisor.persona.nombre }} {{ ppp.supervisor.persona.apepat }} {{ ppp.supervisor.persona.apemat }}</p>
+            <p><strong>Estudiante:</strong> {{ ppp.matricula.estudiante.persona.nombre }} {{ ppp.matricula.estudiante.persona.apepat }} {{ ppp.matricula.estudiante.persona.apemat }}</p>
             <p><strong>Código:</strong> {{ ppp.matricula.estudiante.codigo }}</p>
             <p><strong>Empresa:</strong> {{ ppp.empresa.nombre }}</p>
             <p><strong>Correo de Empresa:</strong> {{ ppp.empresa.email }}</p>
-            <p><strong>Supervisor:</strong> {{ ppp.supervisor.persona.nombre }}</p>
+            <p><strong>Supervisor:</strong> {{ ppp.supervisor?.persona?.nombre }}</p>
             <p><strong>Fecha de Inicio:</strong> {{ ppp.fechaInicio | date }}</p>
           </div>
           <div class="status">
@@ -29,7 +29,7 @@
                 'estado-cronograma': ppp.estado === 6
               }"
             >
-              {{ ppp.estado === 3 ? 'Pendiente' : 'Pendiente' }}
+              {{ ppp.estado === 6 ? 'Cronograma': ppp.estado === 3 ? 'Pendiente' : 'Supervisor' }}
             </span>
             <div class="buttons">
               <button class="calendar-btn" [routerLink]="['/asignar-cronograma-ppp', ppp.id]">

@@ -1,0 +1,21 @@
+<h2>Agregar Evaluación</h2>
+
+<div>
+  <label for="evaluacion">Seleccionar Evaluación:</label>
+  <select id="evaluacion" [(ngModel)]="selectedEvaluacion">
+    <option *ngFor="let evaluacion of evaluaciones" [value]="evaluacion.id">
+      {{ evaluacion.nombre }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <label for="fecha">Seleccionar Fecha:</label>
+  <input type="date" id="fecha" [(ngModel)]="selectedDate" />
+</div>
+
+<div class="actions">
+  <button mat-button (click)="cerrar()">Cancelar</button>
+  <button mat-button color="primary" (click)="agregar()">Agregar</button>
+</div>
+

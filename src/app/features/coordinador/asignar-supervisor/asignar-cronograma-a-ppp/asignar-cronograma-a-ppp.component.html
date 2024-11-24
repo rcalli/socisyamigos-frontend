@@ -1,1 +1,40 @@
-<p>asignar-cronograma-a-ppp works!</p>
+<div class="container">
+    <!-- Barra de herramientas superior -->
+    <div class="toolbar">
+      <input type="text" placeholder="Buscar evaluación..." class="search-input" />
+      <button mat-raised-button color="primary" class="volver-btn" routerLink="/consultar-asignar">
+        <i class="fa fa-arrow-left"></i> Volver
+      </button>
+      <button mat-raised-button color="accent" class="agregar-btn" (click)="abrirModalAgregar()">
+        <i class="fa fa-plus"></i> Agregar
+      </button>
+    </div>
+  
+    <!-- Cronograma: Lista de evaluaciones asignadas -->
+    <div class="cronograma-list">
+      <div *ngFor="let pppEvaluacion of pppEvaluaciones" class="cronograma-card">
+        <div class="cronograma-info">
+          <p><strong>Actividad:</strong> {{ pppEvaluacion.evaluacion.nombre }}</p>
+          <p><strong>Fecha:</strong> {{ pppEvaluacion.fechaRegistro | date }}</p>
+          <p>
+            <strong>Estado:</strong>
+            <span [ngClass]="{
+              'estado-realizado': pppEvaluacion.estado === 1,
+              'estado-pendiente': pppEvaluacion.estado === 0
+            }">
+              {{ pppEvaluacion.estado === 1 ? 'Realizado' : 'Pendiente' }}
+            </span>
+          </p>
+        </div>
+        <div class="cronograma-actions">
+          <button mat-icon-button color="primary" class="ver-btn">
+            <i class="fa fa-eye"></i>
+          </button>
+          <button mat-icon-button color="warn" class="editar-btn">
+            <i class="fa fa-pencil"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,1 +1,53 @@
-<p>asignar-supervisor-a-ppp works!</p>
+<div class="container">
+    <h1>Asignar Supervisor</h1>
+  
+    <div *ngIf="pppData; else loadingOrError">
+      <!-- Datos del estudiante -->
+      <div class="section">
+        <h3>Datos del Estudiante:</h3>
+        <p><strong>Nombre:</strong> {{ pppData.matricula.estudiante.persona.nombre }}</p>
+        <p><strong>Carrera:</strong> {{ pppData.matricula.plan_carrera.carrera.nombre }}</p>
+        <p><strong>Código:</strong> {{ pppData.matricula.estudiante.codigo }}</p>
+        <p><strong>Ciclo:</strong> {{ pppData.matricula.plan_carrera.plan.nombre }}</p>
+        <p><strong>DNI:</strong> {{ pppData.matricula.estudiante.persona.dni }}</p>
+      </div>
+  
+      <!-- Datos de la empresa -->
+      <div class="section"> 
+        <h3>Datos de la Empresa:</h3>
+        <p><strong>Nombre:</strong> {{ pppData.empresa.nombre }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ pppData.empresa.email }}</p>
+      </div>
+  
+      <!-- Selección de supervisor -->
+      <div class="section">
+        <h3>Elegir Supervisor:</h3>
+        <label for="supervisor">Supervisor:</label>
+        <select
+          id="supervisor"
+          [(ngModel)]="selectedSupervisorId"
+          class="form-control"
+        >
+          <option *ngFor="let supervisor of supervisores" [value]="supervisor.id">
+            {{ supervisor.persona.nombre }}
+          </option>
+        </select>
+      </div>
+  
+      <!-- Botones de acción -->
+      <div class="actions">
+        <button class="back-btn" routerLink="/consultar-asignar">
+          <i class="fa fa-arrow-left"></i> Volver
+        </button>
+        <button class="save-btn" (click)="guardarAsignacion()">
+          <i class="fa fa-save"></i> Guardar
+        </button>
+      </div>
+    </div>
+  
+    <ng-template #loadingOrError>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p *ngIf="!errorMessage">Cargando datos...</p>
+    </ng-template>
+  </div>
+  

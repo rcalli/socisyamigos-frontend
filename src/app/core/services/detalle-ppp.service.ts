@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DetallePPP } from '../../shared/models/detalle-ppp.model';
+import { DetallePPP } from '../../shared/models/detalle-ppp';
 
 @Injectable({
   providedIn: 'root'

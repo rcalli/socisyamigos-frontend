@@ -1,5 +1,5 @@
 import { Persona } from "./persona";
-import { Matricula } from "./matricula.model";
+import { Matricula } from "./matricula";
 
 export class Estudiante {
   idestudiante: number;

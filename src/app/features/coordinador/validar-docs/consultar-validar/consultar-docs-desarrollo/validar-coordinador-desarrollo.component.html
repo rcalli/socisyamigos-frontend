@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Solicitud de Documentos Inicio PPP</h1>
+    <h1>Solicitud de Documentos Desarrollo PPP</h1>
   
     <!-- Barra de búsqueda y filtro -->
     <div class="search-filter">
@@ -11,7 +11,7 @@
     <div class="ppp-cards">
       <a 
         *ngFor="let ppp of pppList" 
-        [routerLink]="['/validar-docs-inicio', ppp.idPPP]"
+        [routerLink]="['/validar-docs-desarrollo', ppp.idPPP]"
         class="ppp-card-link"
       >
         <div class="ppp-card">
@@ -31,11 +31,11 @@
             <p class="ppp-label"><strong>Estado:</strong></p>
             <span 
               [ngClass]="{
-                'estado-pendiente': ppp.estadoPPP === 1,
-                'estado-aceptado': ppp.estadoPPP === 3,
-                'estado-rechazado': ppp.estadoPPP === 4
+                'estado-pendiente': [5, 6].includes(ppp.estadoPPP),
+                'estado-aceptado': ppp.estadoPPP === 7,
+                'estado-rechazado': ppp.estadoPPP === 8
               }">
-              {{ ppp.estadoPPP === 1 ? 'Pendiente' : ppp.estadoPPP === 3 ? 'Aceptado' : 'Rechazado' }}
+              {{ ppp.estadoPPP === [5, 6].includes(ppp.estadoPPP) ? 'Pendiente' : ppp.estadoPPP === 7 ? 'Aceptado' : 'Rechazado' }}
             </span>
           </div>
         </div>

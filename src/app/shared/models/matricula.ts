@@ -1,4 +1,4 @@
-import { Estudiante } from "./estudiante.model";
+import { Estudiante } from "./estudiante";
 import { Plan_Carrera } from "./plan-carrera";
 import { PPP } from "./ppp.model";
 

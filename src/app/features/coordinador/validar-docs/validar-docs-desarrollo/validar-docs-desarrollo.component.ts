@@ -7,10 +7,10 @@ import { PPPService } from '../../../../core/services/ppp.service';
   selector: 'app-validar-coordinador',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './validar-docs-inicio.component.html',
-  styleUrl: './validar-docs-inicio.component.css'
+  templateUrl: './validar-docs-desarrollo.component.html',
+  styleUrl: './validar-docs-desarrollo.component.css'
 })
-export class ValidarDocsInicioComponent implements OnInit{
+export class ValidarDocsDesarrolloComponent implements OnInit{
   idPPP!: number;
   estudiante: any = {};
   documentos: any[] = [];
@@ -36,12 +36,12 @@ export class ValidarDocsInicioComponent implements OnInit{
     
   }
   volver() {
-    this.router.navigate(['/validar-coordinador-inicio']); // Cambia '/ruta-anterior' por la ruta a la que deseas redirigir.
+    this.router.navigate(['/validar-coordinador-desarrollo']); // Cambia '/ruta-anterior' por la ruta a la que deseas redirigir.
   }
 
   aceptar() {
     const payload = {
-      estadoPPP: 3, // Estado que quieres asignar a PPP
+      estadoPPP: 7, // Estado que quieres asignar a PPP
       estadoDetallePPP: 2, // Estado que quieres asignar a Detalle_PPP
       procesoNombre: 'Docs Inicio', // Nombre del proceso para filtrar Detalle_PPP
     };
@@ -50,7 +50,7 @@ export class ValidarDocsInicioComponent implements OnInit{
       next: (response) => {
         alert('PPP aceptada exitosamente.');
         console.log('Respuesta del servidor:', response);
-        this.router.navigate(['/validar-coordinador-inicio']); // Redirigir después de aceptar
+        this.router.navigate(['/validar-coordinador-desarrollo']); // Redirigir después de aceptar
       },
       error: (error) => {
         console.error('Error al aceptar la PPP:', error);
@@ -61,16 +61,16 @@ export class ValidarDocsInicioComponent implements OnInit{
 
   rechazar() {
     const payload = {
-      estadoPPP: 4, // Estado que deseas asignar a la PPP cuando es rechazada
+      estadoPPP: 8, // Estado que deseas asignar a la PPP cuando es rechazada
       estadoDetallePPP: 3, // Estado que quieres asignar a Detalle_PPP
-      procesoNombre: 'Docs Inicio', // Nombre del proceso para filtrar Detalle_PPP
+      procesoNombre: 'Docs Desarrollo', // Nombre del proceso para filtrar Detalle_PPP
     };
 
     this.pppService.rechazarPPP(this.idPPP, payload).subscribe({
       next: (response) => {
         alert('PPP rechazada exitosamente.');
         console.log('Respuesta del servidor:', response);
-        this.router.navigate(['/validar-coordinador-inicio']); // Redirigir después de rechazar
+        this.router.navigate(['/validar-coordinador-desarrollo']); // Redirigir después de rechazar
       },
       error: (error) => {
         console.error('Error al rechazar la PPP:', error);

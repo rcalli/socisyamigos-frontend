@@ -8,13 +8,23 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'validar-coordinador',
-        loadChildren: () => import('./features/coordinador/validar-docs/consultar-validar/validar-coordinador.module').then(m => m.ValidarCoordinadorModule),
+        path: 'validar-coordinador-inicio',
+        loadChildren: () => import('./features/coordinador/validar-docs/consultar-validar/consultar-docs-inicio/validar-coordinador.module').then(m => m.ValidarCoordinadorModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'validar-coordinador-desarrollo',
+        loadChildren: () => import('./features/coordinador/validar-docs/consultar-validar/consultar-docs-desarrollo/validar-coordinador-desarrollo.module').then(m => m.ValidarCoordinadorDesarrolloModule),
         canActivate: [AuthGuard]
     },
     {
         path: 'validar-docs-inicio/:idPPP',
         loadChildren: () => import('./features/coordinador/validar-docs/validar-docs-inicio/validar-docs-inicio.module').then(m => m.ValidarDocsInicioModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'validar-docs-desarrollo/:idPPP',
+        loadChildren: () => import('./features/coordinador/validar-docs/validar-docs-desarrollo/validar-docs-desarrollo.module').then(m => m.ValidarDocsDesarrolloModule),
         canActivate: [AuthGuard]
     },
     {
