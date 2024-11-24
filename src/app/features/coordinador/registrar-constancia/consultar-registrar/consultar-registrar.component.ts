@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PPPService } from '../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-consultar-asignar',
+  selector: 'app-consultar-registrar',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './consultar-asignar.component.html',
-  styleUrl: './consultar-asignar.component.css'
+  templateUrl: './consultar-registrar.component.html',
+  styleUrl: './consultar-registrar.component.css'
 })
-export class ConsultarAsignarComponent implements OnInit{
+export class ConsultarRegistrarComponent {
   pppList: any[] = [];
   loading: boolean = false;
   error: string = '';
@@ -18,12 +18,12 @@ export class ConsultarAsignarComponent implements OnInit{
   constructor(private pppService: PPPService) {}
 
   ngOnInit(): void {
-    this.fetchPPPsByEstado(); // Obtiene los PPP con estado 3 (completado)
+    this.fetchPPPsByEstado();
   }
 
   fetchPPPsByEstado(): void {
     this.loading = true;
-    this.pppService.getPPPsByEstado([3, 5, 6]).subscribe(
+    this.pppService.getPPPsByEstado([7, 9]).subscribe(
       (data) => {
         this.pppList = data;
         this.loading = false;

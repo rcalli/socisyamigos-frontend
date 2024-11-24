@@ -31,4 +31,7 @@ export class LineaCarreraService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  getLineasCarreraByMatriculaId(idMatricula: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/matricula/${idMatricula}`);
+  }
 }

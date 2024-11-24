@@ -1,0 +1,43 @@
+<div *ngIf="isLoading">
+    <p>Cargando datos...</p>
+  </div>
+  
+  <div *ngIf="!isLoading">
+    <h1>Solicitud de práctica</h1>
+  
+    <!-- Datos del estudiante -->
+    <div class="section">
+      <h3>Datos Estudiante:</h3>
+      <p><strong>Nombre:</strong> {{ matricula?.estudiante?.persona?.nombre }}</p>
+      <div *ngIf="matricula">
+        <p><strong>Código:</strong> {{ matricula?.estudiante?.codigo }}</p>
+      </div>
+      <p><strong>DNI:</strong> {{ matricula?.estudiante?.persona?.dni }}</p>
+      <p>
+        <strong>Línea de carrera:</strong>
+        <select [(ngModel)]="selectedLineaCarrera">
+          <option [value]="null">Elegir</option>
+          <option *ngFor="let linea of lineasCarrera" [value]="linea.id">
+            {{ linea.nombre }}
+          </option>
+        </select>
+      </p>
+    </div>
+  
+    <!-- Selección de empresa -->
+    <div class="section">
+      <h3>Agregar Empresa:</h3>
+      <p>
+        <strong>Empresa:</strong>
+        <select [(ngModel)]="selectedEmpresa">
+          <option [value]="null">Elegir</option>
+          <option *ngFor="let empresa of empresas" [value]="empresa.id">
+            {{ empresa.nombre }}
+          </option>
+        </select>
+      </p>
+      <button (click)="createPPP()">Registrar Solicitud</button>
+      <button class="back-btn" (click)="volverAtras()">Volver</button>
+    </div>
+  </div>
+  

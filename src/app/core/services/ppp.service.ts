@@ -37,7 +37,11 @@ export class PPPService {
     return this.http.put(`${this.apiUrl}/${idPPP}/rechazar`, payload);
   } 
 
-  getPPPsByEstado(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/estado`);
+  getPPPsByEstado(estados: number[]): Observable<any> {
+    const estadosParam = estados.join(','); // Convierte la lista de números en una cadena separada por comas
+    return this.http.get<any>(`${this.apiUrl}/estado?estados=${estadosParam}`);
+  }
+  createPPP(payload: { idMatricula: number; idLineaCarrera: number | null; idEmpresa: number }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/crear-ppp`, payload);
   }
 }

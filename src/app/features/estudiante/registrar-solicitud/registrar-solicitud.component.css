@@ -1,0 +1,135 @@
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Títulos */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 15px;
+  }
+  
+  /* Secciones */
+  .section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Etiquetas y datos */
+  .section p {
+    margin: 8px 0;
+    color: #666666;
+    font-size: 14px;
+  }
+  
+  .section strong {
+    color: #333333;
+  }
+  
+  /* Selectores */
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Botones */
+  button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+  
+  /* Botón de registro */
+  button.create {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  
+  button.create:hover {
+    background-color: #218838;
+  }
+  
+  /* Botón de volver */
+  button.back {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  button.back:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Indicador de carga */
+  .loading {
+    text-align: center;
+    color: #007bff;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  /* Resaltar campos obligatorios */
+  select:invalid {
+    border-color: #dc3545;
+  }
+  .back-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
