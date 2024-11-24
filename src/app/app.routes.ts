@@ -78,6 +78,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     title: 'linea-carrera'
   },
+  {
+    path: 'doc-inicio',
+    loadChildren: () => import('./features/registrar-docs-inicio/registrar-docs-inicio.module').then(m => m.RegistrarDocsInicioModule),
+    canActivate: [AuthGuard],
+    title: 'doc-inicio'
+  },
 
     {
         path: '**',
