@@ -48,7 +48,7 @@ export class AuthInterceptor implements HttpInterceptor {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('Interceptor: Token válido:', token);
+      console.log('Interceptor: Token válido');
     } else {
       console.error('Interceptor: No se encontró token');
     }

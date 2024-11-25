@@ -23,4 +23,11 @@ export class PPPEvaluacionService {
   obtenerEvaluacionesPorPPP(idPPP: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/ppp/${idPPP}`);
   }
+  getPPPEvaluacionesByUsuario(idUsuario: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/usuario/${idUsuario}`);
+  }
+  registrarNota(idPPPEvaluacion: number, nota: number): Observable<any> {
+    const payload = { idPPPEvaluacion, nota };
+    return this.http.put(`${this.apiUrl}/registrar-nota`, payload);
+  }
 }

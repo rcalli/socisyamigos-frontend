@@ -3,13 +3,23 @@ import { AuthGuard } from './core/auth.guard';
 
 export const routes: Routes = [
     {
+        path: 'consultar-registrar-evaluaciones',
+        loadChildren: () => import('./features/supervisor/consultar-registrar-evaluaciones/consultar-registrar-evaluaciones.module').then(m => m.ConsultarRegistrarEvaluacionesModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'registrar-evaluaciones/:idPPP',
+        loadChildren: () => import('./features/supervisor/registrar-evaluaciones/registrar-evaluaciones.module').then(m => m.RegistrarEvaluacionesModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'registrar-solicitud-ppp',
         loadChildren: () => import('./features/estudiante/registrar-solicitud/registrar-solicitud.module').then(m => m.RegistrarSolicitudModule),
         canActivate: [AuthGuard]
     },
     {
         path: 'consultar-estudiante',
-        loadChildren: () => import('./features/consultar/estudiante/consultar-estudiante.module').then(m => m.ConsultarEstudianteModule),
+        loadChildren: () => import('./features/estudiante/consultar-practica/consultar-estudiante.module').then(m => m.ConsultarEstudianteModule),
         canActivate: [AuthGuard]
     },
     {

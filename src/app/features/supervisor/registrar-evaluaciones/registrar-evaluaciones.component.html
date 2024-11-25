@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Registrar Evaluaciones</h1>
+    <button class="back-btn" (click)="volver()">Volver</button>
+  
+    <!-- Selección de evaluación -->
+    <div class="section">
+      <label for="evaluacion">Seleccionar Evaluación:</label>
+      <select id="evaluacion" [(ngModel)]="selectedEvaluacion">
+        <option *ngFor="let evaluacion of pppEvaluaciones" [value]="evaluacion.id">
+          {{ evaluacion.evaluacion.nombre }}
+        </option>
+      </select>
+    </div>
+  
+    <!-- Datos del PPP -->
+    <div class="section ppp-info">
+      <h3>Datos de PPP</h3>
+      <p><strong>Estudiante:</strong> {{ pppEvaluaciones[0]?.ppp?.matricula?.estudiante?.persona?.nombre }}</p>
+      <p><strong>DNI:</strong> {{ pppEvaluaciones[0]?.ppp?.matricula?.estudiante?.persona?.dni }}</p>
+      <p><strong>Correo:</strong> {{ pppEvaluaciones[0]?.ppp?.matricula?.estudiante?.persona?.correo }}</p>
+      <p><strong>Línea de trabajo:</strong> {{ pppEvaluaciones[0]?.ppp?.linea_carrera?.nombre || 'N/A' }}</p>
+    </div>
+  
+    <!-- Formulario para registrar nota -->
+    <div class="section">
+      <label for="nota">Registrar Nota:</label>
+      <input type="number" id="nota" [(ngModel)]="nota" min="0" max="20" placeholder="Nota" />
+      <button class="save-btn" (click)="guardarNota()">Guardar</button>
+    </div>
+  </div>
+  

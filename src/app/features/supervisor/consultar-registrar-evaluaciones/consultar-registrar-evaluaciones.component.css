@@ -1,0 +1,64 @@
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .card-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555555;
+  }
+  
+  .estado-aceptado {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .estado-pendiente {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+  .btn-evaluar {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-evaluar:hover {
+    background-color: #0056b3;
+  }
+  
