@@ -6,11 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { AgregarEvaluacionComponent } from '../../../../Modals/agregar-evaluacion/agregar-evaluacion.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EvaluacionService } from '../../../../core/services/evaluacion.service';
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
+import { HeaderComponent } from "../../../header/header.component";
 
 @Component({
   selector: 'app-asignar-cronograma-a-ppp',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, SidebarCoordinadorComponent, HeaderComponent],
   templateUrl: './asignar-cronograma-a-ppp.component.html',
   styleUrl: './asignar-cronograma-a-ppp.component.css'
 })

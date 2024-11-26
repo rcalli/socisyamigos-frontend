@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { PPPService } from '../../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from "../../../../header/header.component";
+import { SidebarCoordinadorComponent } from "../../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
 
 @Component({
   selector: 'app-validar-coordinador-desarrollo',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, HeaderComponent, SidebarCoordinadorComponent],
   templateUrl: './validar-coordinador-desarrollo.component.html',
   styleUrl: './validar-coordinador-desarrollo.component.css'
 })

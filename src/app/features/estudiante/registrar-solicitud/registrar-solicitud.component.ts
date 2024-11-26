@@ -7,11 +7,13 @@ import { MatriculaService } from '../../../core/services/matricula.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from "../../header/header.component";
+import { SidebarEstudianteComponent } from "../../sidebar/sidebar-estudiante/sidebar-estudiante.component";
 
 @Component({
   selector: 'app-registrar-solicitud',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HeaderComponent, SidebarEstudianteComponent],
   templateUrl: './registrar-solicitud.component.html',
   styleUrl: './registrar-solicitud.component.css'
 })

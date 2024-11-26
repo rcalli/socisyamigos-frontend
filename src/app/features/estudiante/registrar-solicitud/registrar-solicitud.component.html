@@ -1,3 +1,8 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
 <div *ngIf="isLoading">
     <p>Cargando datos...</p>
   </div>
@@ -42,4 +47,5 @@
       <button class="back-btn" (click)="volverAtras()">Volver</button>
     </div>
   </div>
-  
+  </div>
+</div>

@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PPPService } from '../../../../core/services/ppp.service';
+import { HeaderComponent } from "../../../header/header.component";
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
 
 @Component({
   selector: 'app-registrar-constancia-ppp',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, SidebarCoordinadorComponent],
   templateUrl: './registrar-constancia-ppp.component.html',
   styleUrl: './registrar-constancia-ppp.component.css'
 })

@@ -59,3 +59,24 @@
 .sidebar li:last-child {
     border-bottom: none;
 }
+.sidebar {
+  transition: all 0.3s ease-in-out;
+  width: 250px; /* Anchura estándar */
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Anchura colapsada */
+}
+
+.nav-link {
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nav-link i {
+  font-size: 18px;
+}

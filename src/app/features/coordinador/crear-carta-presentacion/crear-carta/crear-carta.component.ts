@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PPPService } from '../../../../core/services/ppp.service';
+import { HeaderComponent } from "../../../header/header.component";
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
 
 @Component({
   selector: 'app-crear-carta',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, SidebarCoordinadorComponent],
   templateUrl: './crear-carta.component.html',
   styleUrl: './crear-carta.component.css'
 })
@@ -45,6 +47,17 @@ export class CrearCartaComponent {
         if (response && response.message) {
           alert(response.message); // Muestra el mensaje del backend
         } else {
+          const payload = {
+            estadoPPP: 1, // Estado que quieres asignar a PPP
+            estadoDetallePPP: 2, // Estado que quieres asignar a Detalle_PPP
+            procesoNombre: 'Solicitud PPP', // Nombre del proceso para filtrar Detalle_PPP
+          };
+      
+          this.pppService.aceptarPPP(this.idPPP, payload).subscribe({
+            next: (response) => {
+              console.log('Respuesta del servidor:', response);
+            },
+          });
           alert('Solicitud aceptada correctamente.');
         }
         this.router.navigate(['/consultar-crear-carta']);

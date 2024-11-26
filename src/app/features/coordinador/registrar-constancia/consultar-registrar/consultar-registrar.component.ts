@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { PPPService } from '../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
+import { HeaderComponent } from "../../../header/header.component";
 
 @Component({
   selector: 'app-consultar-registrar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SidebarCoordinadorComponent, HeaderComponent],
   templateUrl: './consultar-registrar.component.html',
   styleUrl: './consultar-registrar.component.css'
 })

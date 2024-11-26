@@ -5,11 +5,12 @@ import { DetallePPP } from '../../../shared/models/detalle-ppp';
 import { AuthService } from '../../../core/services/auth.service';
 import { Rol } from '../../../shared/models/rol';
 import { HeaderComponent } from "../../header/header.component";
+import { SidebarEstudianteComponent } from "../../sidebar/sidebar-estudiante/sidebar-estudiante.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, SidebarEstudianteComponent],
   templateUrl: './consultar-estudiante.component.html',
   styleUrl: './consultar-estudiante.component.css'
 })

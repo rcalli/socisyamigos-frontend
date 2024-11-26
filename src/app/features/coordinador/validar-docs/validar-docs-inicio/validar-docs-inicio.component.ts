@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PPPService } from '../../../../core/services/ppp.service';
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
+import { HeaderComponent } from "../../../header/header.component";
 
 @Component({
   selector: 'app-validar-coordinador',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SidebarCoordinadorComponent, HeaderComponent],
   templateUrl: './validar-docs-inicio.component.html',
   styleUrl: './validar-docs-inicio.component.css'
 })
 export class ValidarDocsInicioComponent implements OnInit{
   idPPP!: number;
-  estudiante: any = {};
+  ppp: any = {};
   documentos: any[] = [];
 
   constructor(
@@ -25,8 +27,8 @@ export class ValidarDocsInicioComponent implements OnInit{
     this.idPPP = Number(this.route.snapshot.paramMap.get('idPPP'));
 
     // Obtener datos del estudiante
-    this.pppService.getEstudianteDetalle(this.idPPP).subscribe((data) => {
-      this.estudiante = data;
+    this.pppService.getPppById(this.idPPP).subscribe((data) => {
+      this.ppp = data;
     });
 
     // Obtener documentos cargados

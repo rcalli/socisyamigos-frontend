@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PPPService } from '../../../../core/services/ppp.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
+import { HeaderComponent } from "../../../header/header.component";
 
 @Component({
   selector: 'app-consultar-asignar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SidebarCoordinadorComponent, HeaderComponent],
   templateUrl: './consultar-asignar.component.html',
   styleUrl: './consultar-asignar.component.css'
 })

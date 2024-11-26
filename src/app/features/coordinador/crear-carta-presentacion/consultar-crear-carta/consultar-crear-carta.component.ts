@@ -3,11 +3,13 @@ import { PPPService } from '../../../../core/services/ppp.service';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from "../../../header/header.component";
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
 
 @Component({
   selector: 'app-consultar-crear-carta',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, HeaderComponent, SidebarCoordinadorComponent],
   templateUrl: './consultar-crear-carta.component.html',
   styleUrl: './consultar-crear-carta.component.css'
 })

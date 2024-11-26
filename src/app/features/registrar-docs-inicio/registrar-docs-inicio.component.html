@@ -1,3 +1,8 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
 <div class="container">
   <div class="header">
     <h1>Registrar Documentos de Inicio</h1>
@@ -13,13 +18,13 @@
           <button
             class="estado-btn"
             [ngClass]="{
-              completado: detalle.estado === 2,
-              pendiente: detalle.estado === 1,
+              completado: detalle.estado === 1 || detalle.estado === 2,
+              pendiente: detalle.estado === 0,
               rechazado: detalle.estado === 3
             }"
             disabled
           >
-            {{ detalle.estado === 2 ? 'Completado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
+            {{ detalle.estado === 1 || detalle.estado === 2 ? 'Registrado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
           </button>
 
           <div class="file-upload">
@@ -35,12 +40,9 @@
               {{ uploading ? 'Subiendo...' : 'Subir documento' }}
             </label>
 
-            <div *ngIf="currentFile && progress > 0" class="progress-container">
+            <div *ngIf="progress > 0" class="progress-container">
               <div class="progress">
-                <div
-                  class="progress-bar"
-                  [style.width.%]="progress"
-                >
+                <div class="progress-bar" [style.width.%]="progress">
                   {{ progress }}%
                 </div>
               </div>
@@ -51,8 +53,8 @@
             </div>
 
             <!-- Lista de documentos asociados a este detalle -->
-            <div *ngIf="docs" class="doc-list">
-              <div *ngFor="let doc of docs" class="doc-item">
+            <div *ngIf="docsByDetalle[detalle.id]" class="doc-list">
+              <div *ngFor="let doc of docsByDetalle[detalle.id]" class="doc-item">
                 <span>{{ doc.nombre }}</span>
                 <button (click)="downloadDoc(doc.ruta_archivo)" class="download-btn">
                   <i class="fas fa-download"></i>
@@ -64,10 +66,6 @@
       </div>
     </div>
   </div>
-
-  <div class="info" *ngIf="detallesPPP.length > 0">
-    <div class="rol-card" *ngIf="roles.length > 0">
-      <div class="rol-header">RECURSOS</div>
-    </div>
-  </div>
+</div>
+</div>
 </div>

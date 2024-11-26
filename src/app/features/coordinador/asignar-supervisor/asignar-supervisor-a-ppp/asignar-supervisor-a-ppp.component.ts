@@ -5,11 +5,13 @@ import { PPPService } from '../../../../core/services/ppp.service';
 import { SupervisorService } from '../../../../core/services/supervisor.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SidebarCoordinadorComponent } from "../../../sidebar/sidebar-coordinador/sidebar-coodinador.component";
+import { HeaderComponent } from "../../../header/header.component";
 
 @Component({
   selector: 'app-asignar-supervisor-a-ppp',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, SidebarCoordinadorComponent, HeaderComponent],
   templateUrl: './asignar-supervisor-a-ppp.component.html',
   styleUrl: './asignar-supervisor-a-ppp.component.css'
 })

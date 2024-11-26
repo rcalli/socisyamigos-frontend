@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { DetallePPP } from '../../shared/models/detalle-ppp';
 import { DetallePPPService } from '../../core/services/detalle-ppp.service';
 import { AuthService } from '../../core/services/auth.service';
 import { DocService } from '../../core/services/doc.service';
-import {HttpEventType, HttpResponse} from "@angular/common/http";
-import {Rol} from '../../shared/models/rol';
-import {Doc} from '../../shared/models/doc';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { Rol } from '../../shared/models/rol';
+import { Doc } from '../../shared/models/doc';
+import { HeaderComponent } from "../header/header.component";
+import { SidebarEstudianteComponent } from "../sidebar/sidebar-estudiante/sidebar-estudiante.component";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-registrar-docs-inicio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, SidebarEstudianteComponent],
   templateUrl: './registrar-docs-inicio.component.html',
   styleUrls: ['./registrar-docs-inicio.component.css']
 })
@@ -20,7 +22,7 @@ export class RegistrarDocsInicioComponent implements OnInit {
   detallesPPP: DetallePPP[] = [];
   roles: Rol[] = [];
   currentRole: string = '';
-  docs: Doc[] = [];
+  docsByDetalle: { [key: number]: Doc[] } = {}; // Documentos asociados a cada detallePPP
 
   selectedFiles?: FileList;
   currentFile?: File;
@@ -81,8 +83,14 @@ export class RegistrarDocsInicioComponent implements OnInit {
     if (this.detallesPPP.length > 0) {
       this.docService.getAll().subscribe({
         next: (docs: Doc[]) => {
-          this.docs = docs;
-          // Aquí puedes relacionar los docs con sus detallesPPP correspondientes
+          this.docsByDetalle = {}; // Reinicia el objeto
+          docs.forEach((doc) => {
+            const detalleId = doc.detalle_ppp.id; // Ajusta según tu modelo
+            if (!this.docsByDetalle[detalleId]) {
+              this.docsByDetalle[detalleId] = [];
+            }
+            this.docsByDetalle[detalleId].push(doc);
+          });
         },
         error: (error) => console.error('Error al cargar documentos:', error)
       });
@@ -119,7 +127,15 @@ export class RegistrarDocsInicioComponent implements OnInit {
               } else if (event instanceof HttpResponse) {
                 this.message = 'Archivo subido exitosamente!';
                 detalle.estado = 1;
-                this.loadDocsForDetalles(); // Recargar los documentos
+
+                // Agrega el nuevo documento al detalle correspondiente
+                const nuevoDoc = event.body; // Asegúrate de que el backend devuelva el documento subido
+                if (!this.docsByDetalle[detalle.id]) {
+                  this.docsByDetalle[detalle.id] = [];
+                }
+                this.docsByDetalle[detalle.id].push(nuevoDoc);
+
+                this.progress = 0;
               }
             },
             error: (err) => {

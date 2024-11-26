@@ -1,11 +1,12 @@
 <app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
 <div class="container">
   <!-- Encabezado -->
   <div class="header">
     <h1>Estado de la práctica</h1>
-    <select>
-      <option *ngFor="let ppp of detallesPPP" [value]="ppp.ppp.id">PPP {{ ppp.ppp.id }}</option>
-    </select>
   </div>
 
   <!-- Contenido -->
@@ -21,7 +22,7 @@
           completado: detalle.estado === 2,
           pendiente: detalle.estado === 1,
           rechazado: detalle.estado === 3
-        }" disabled>
+        }">
             {{ detalle.estado === 2 ? 'Completado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
           </button>
         </div>
@@ -54,4 +55,6 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
