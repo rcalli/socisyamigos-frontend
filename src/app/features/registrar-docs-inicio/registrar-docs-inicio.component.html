@@ -1,65 +1,73 @@
 <div class="container">
-  <!-- Encabezado -->
   <div class="header">
     <h1>Registrar Documentos de Inicio</h1>
-
   </div>
 
-  <!-- Contenido -->
   <div class="content">
-    <!-- Requisitos (Izquierda) -->
     <div class="requisitos">
       <div *ngFor="let detalle of detallesPPP" class="requisito-item">
         <div class="requisito-info">
           <h3>{{ detalle.requisito.nombre }}</h3>
         </div>
         <div class="requisito-acciones">
-          <!-- Botón con estado -->
           <button
             class="estado-btn"
             [ngClass]="{
-            completado: detalle.estado === 2,
-            pendiente: detalle.estado === 1,
-            rechazado: detalle.estado === 3
-          }"
+              completado: detalle.estado === 2,
+              pendiente: detalle.estado === 1,
+              rechazado: detalle.estado === 3
+            }"
             disabled
           >
             {{ detalle.estado === 2 ? 'Completado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
           </button>
-            <!-- Agregar sección de carga de archivos -->
-            <div class="file-upload">
-                <input
-                        type="file"
-                        [id]="'fileInput_' + detalle.id"
-                        (change)="selectFile($event, detalle)"
-                        style="display: none"
+
+          <div class="file-upload">
+            <input
+              type="file"
+              [id]="'fileInput_' + detalle.id"
+              (change)="selectFile($event, detalle)"
+              [disabled]="uploading"
+              style="display: none"
+            >
+            <label [for]="'fileInput_' + detalle.id" class="upload-btn" [class.disabled]="uploading">
+              <i class="fas fa-upload"></i>
+              {{ uploading ? 'Subiendo...' : 'Subir documento' }}
+            </label>
+
+            <div *ngIf="currentFile && progress > 0" class="progress-container">
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  [style.width.%]="progress"
                 >
-                <label [for]="'fileInput_' + detalle.id" class="upload-btn">
-                    <i class="fas fa-upload"></i> Subir documento
-                </label>
-
-                <div *ngIf="currentFile" class="progress">
-                    <div
-                            class="progress-bar progress-bar-info"
-                            role="progressbar"
-                            [ngStyle]="{ width: progress + '%' }"
-                    >
-                        {{ progress }}%
-                    </div>
+                  {{ progress }}%
                 </div>
-
-                <div *ngIf="message" class="message" [ngClass]="{ 'error': message.includes('No se pudo') }">
-                    {{ message }}
-                </div>
+              </div>
             </div>
+
+            <div *ngIf="message" class="message" [class.error]="message.includes('Error')">
+              {{ message }}
+            </div>
+
+            <!-- Lista de documentos asociados a este detalle -->
+            <div *ngIf="docs" class="doc-list">
+              <div *ngFor="let doc of docs" class="doc-item">
+                <span>{{ doc.nombre }}</span>
+                <button (click)="downloadDoc(doc.ruta_archivo)" class="download-btn">
+                  <i class="fas fa-download"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
+  <div class="info" *ngIf="detallesPPP.length > 0">
+    <div class="rol-card" *ngIf="roles.length > 0">
+      <div class="rol-header">RECURSOS</div>
+    </div>
   </div>
-
-
+</div>

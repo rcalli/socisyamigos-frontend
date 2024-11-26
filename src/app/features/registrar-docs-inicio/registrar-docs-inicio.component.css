@@ -1,118 +1,87 @@
-/* Contenedor principal */
 .container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
 }
 
-/* Encabezado */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-select {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Contenido */
-.content {
-  display: flex;
-  gap: 20px;
-}
-
-/* Requisitos */
 .requisitos {
-  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
 }
 
 .requisito-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  padding: 20px;
   border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.completar-btn {
+.requisito-info h3 {
+  margin-top: 0;
+}
+
+.estado-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+.estado-btn.completado {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.estado-btn.pendiente {
+  background-color: #FFA500;
+  color: white;
+}
+
+.estado-btn.rechazado {
+  background-color: #F44336;
+  color: white;
+}
+
+.file-upload {
+  margin-top: 10px;
+}
+
+.upload-btn {
+  display: inline-block;
   background-color: #007bff;
   color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.completar-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.progress {
+  height: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin-top: 10px;
 }
 
-/* Información Principal */
-.info {
-  flex: 1.5;
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.rol-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1d3557; /* Azul oscuro */
+.progress-bar {
+  height: 100%;
+  background-color: #007bff;
+  text-align: center;
+  line-height: 20px;
   color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
 }
 
-.rol-header {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.rol-name {
-  font-size: 18px;
-}
-
-/* Botón genérico */
-.estado-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: not-allowed;
-  color: white;
+.message {
+  margin-top: 10px;
   font-weight: bold;
 }
 
-/* Botón Pendiente */
-.estado-btn.pendiente {
-  background-color: #ccc; /* Gris */
-  color: black;
-}
-
-/* Botón Completado */
-.estado-btn.completado {
-  background-color: #28a745; /* Verde */
-  color: white;
-}
-
-/* Botón Rechazado */
-.estado-btn.rechazado {
-  background-color: #dc3545; /* Rojo */
-  color: white;
+.message.error {
+  color: #F44336;
 }

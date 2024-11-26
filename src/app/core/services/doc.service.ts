@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Doc } from '../../shared/models/doc';
+import {DetallePPP} from '../../shared/models/detalle-ppp';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class DocService {
 
   constructor(private http: HttpClient) {}
 
+  // Métodos existentes
   getDocs(userId: number): Observable<Doc[]> {
     return this.http.get<Doc[]>(`${this.apiUrl}/${userId}`);
   }
@@ -35,14 +37,30 @@ export class DocService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  uploadFile(detalleId: number, file: File, detallePPP: any): Observable<any> {
+  // Nuevos métodos para manejo de archivos
+  upload(file: File, detalleId: number, detallePPP: DetallePPP): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
     formData.append('detallePPP', JSON.stringify(detallePPP));
 
-    return this.http.post(`${this.apiUrl}/upload/${detalleId}`, formData, {
-      reportProgress: true,
-      observe: 'events'
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    const req = new HttpRequest('POST', `${this.apiUrl}/upload/${detalleId}`, formData, {
+      headers: headers,
+      reportProgress: true
+    });
+
+    return this.http.request(req);
+  }
+
+  downloadFile(fileName: string): Observable<Blob> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(`${this.apiUrl}/download/${fileName}`, {
+      headers: headers,
+      responseType: 'blob'
     });
   }
 }

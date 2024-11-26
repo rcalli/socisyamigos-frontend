@@ -12,11 +12,7 @@ export class DetallePPPService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Obtiene los detalles de PPP de un usuario por su ID
-   * @param userId ID del usuario
-   * @returns Observable con los detalles de PPP
-   */
+
   getDetallesPPP(userId: number): Observable<DetallePPP[]> {
     return this.http.get<DetallePPP[]>(`${this.apiUrl}/ppp/usuario/${userId}`);
     }
