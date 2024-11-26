@@ -8,6 +8,16 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'consultar-crear-carta',
+        loadChildren: () => import('./features/coordinador/crear-carta-presentacion/consultar-crear-carta/consultar-crear-carta.module').then(m => m.ConsultarCrearCartaModule),
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'crear-carta-presentacion/:idPPP',
+        loadChildren: () => import('./features/coordinador/crear-carta-presentacion/crear-carta/crear-carta.module').then(m => m.CrearCartaModule),
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'registrar-evaluaciones/:idPPP',
         loadChildren: () => import('./features/supervisor/registrar-evaluaciones/registrar-evaluaciones.module').then(m => m.RegistrarEvaluacionesModule),
         canActivate: [AuthGuard]

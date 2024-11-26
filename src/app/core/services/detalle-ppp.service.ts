@@ -8,7 +8,7 @@ import { DetallePPP } from '../../shared/models/detalle-ppp';
   providedIn: 'root'
 })
 export class DetallePPPService {
-  private apiUrl = 'http://localhost:8080/api/detalle_ppps/ppp/usuario'; // Cambia esta URL según la configuración de tu backend
+  private apiUrl = 'http://localhost:8080/api/detalle_ppps'; // Cambia esta URL según la configuración de tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class DetallePPPService {
    * @returns Observable con los detalles de PPP
    */
   getDetallesPPP(userId: number): Observable<DetallePPP[]> {
-    return this.http.get<DetallePPP[]>(`${this.apiUrl}/${userId}`);
+    return this.http.get<DetallePPP[]>(`${this.apiUrl}/ppp/usuario/${userId}`);
     }
   getAll(): Observable<DetallePPP[]> {
     return this.http.get<DetallePPP[]>(this.apiUrl);

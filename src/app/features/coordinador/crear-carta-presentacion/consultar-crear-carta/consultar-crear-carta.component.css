@@ -1,0 +1,75 @@
+.container {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filter-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .ppp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .ppp-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .ppp-details {
+    flex: 1;
+  }
+  
+  .ppp-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .generate-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .estado-pendiente {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+  .estado-rechazado {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  

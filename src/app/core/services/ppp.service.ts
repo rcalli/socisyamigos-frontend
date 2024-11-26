@@ -44,4 +44,13 @@ export class PPPService {
   createPPP(payload: { idMatricula: number; idLineaCarrera: number | null; idEmpresa: number }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/crear-ppp`, payload);
   }
+  // Crear detalles PPP (aceptar)
+  aceptarCarta(id: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/crear-detalles/${id}`, {});
+  }
+
+  // Rechazar PPP
+  rechazarCarta(id: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}/rechazar-solicitud`, {});
+  }
 }

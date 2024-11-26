@@ -4,11 +4,12 @@ import { DetallePPPService } from '../../../core/services/detalle-ppp.service';
 import { DetallePPP } from '../../../shared/models/detalle-ppp';
 import { AuthService } from '../../../core/services/auth.service';
 import { Rol } from '../../../shared/models/rol';
+import { HeaderComponent } from "../../header/header.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './consultar-estudiante.component.html',
   styleUrl: './consultar-estudiante.component.css'
 })

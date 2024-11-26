@@ -13,6 +13,8 @@
         <p><strong>Código:</strong> {{ matricula?.estudiante?.codigo }}</p>
       </div>
       <p><strong>DNI:</strong> {{ matricula?.estudiante?.persona?.dni }}</p>
+      <p><strong>Telefono:</strong> {{ matricula?.estudiante?.persona?.telefono }}</p>
+      <p><strong>Correo:</strong> {{ matricula?.estudiante?.persona?.correo }}</p>
       <p>
         <strong>Línea de carrera:</strong>
         <select [(ngModel)]="selectedLineaCarrera">

@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Solicitud de PPP</h1>
+    <div class="card">
+      <h3>Datos del Practicante:</h3>
+      <p><strong>Estudiante:</strong> {{ ppp.matricula.estudiante.persona.nombre }}</p>
+      <p><strong>DNI:</strong> {{ ppp.matricula.estudiante.persona.dni }}</p>
+      <p><strong>Código del Estudiante:</strong> {{ ppp.matricula.estudiante.codigo }}</p>
+      <p><strong>Correo:</strong> {{ ppp.matricula.estudiante.persona.correo }}</p>
+    </div>
+    <div class="card">
+      <h3>Datos de la Empresa:</h3>
+      <p><strong>Empresa:</strong> {{ ppp.empresa.nombre }}</p>
+      <p><strong>Dirección:</strong> {{ ppp.empresa.direccion }}</p>
+    </div>
+    <div class="actions">
+      <button class="btn-back" (click)="volver()">Volver</button>
+      <button class="btn-accept" (click)="aceptar()">Aceptar</button>
+      <button 
+  class="btn-rechazar" 
+  (click)="rechazar()" 
+  [disabled]="ppp.estado !== 0">
+  Rechazar
+</button>
+    </div>
+  </div>
+  
