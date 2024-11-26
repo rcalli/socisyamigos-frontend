@@ -4,11 +4,13 @@ import { AuthService } from '../../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SidebarSupervisorComponent } from "../../sidebar/sidebar-supervisor/sidebar-supervisor.component";
+import { HeaderComponent } from "../../header/header.component";
 
 @Component({
   selector: 'app-consultar-registrar-evaluaciones',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, SidebarSupervisorComponent, HeaderComponent],
   templateUrl: './consultar-registrar-evaluaciones.component.html',
   styleUrl: './consultar-registrar-evaluaciones.component.css'
 })

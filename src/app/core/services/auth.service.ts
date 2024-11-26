@@ -26,10 +26,6 @@ export class AuthService {
     );
   }
 
-  logout(): void {
-    localStorage.removeItem('authToken'); // Elimina el token al cerrar sesión
-  }
-
   isAuthenticated(): boolean {
     return !!localStorage.getItem('authToken'); // Comprueba si hay un token
   }
@@ -47,27 +43,6 @@ export class AuthService {
     }
   }
 
-  private isTokenExpired(token: string): boolean {
-    try {
-      const payload = token.split('.')[1]; // El payload está en la segunda parte del token
-      const decodedPayload = JSON.parse(atob(payload)); // Decodifica el payload desde Base64
-  
-      // Obtener el tiempo actual en segundos
-      const currentTime = Math.floor(Date.now() / 1000);
-  
-      // Verificar si el token tiene un campo de expiración y comparar con el tiempo actual
-      if (decodedPayload.exp) {
-        return decodedPayload.exp < currentTime; // Retorna true si el token ha expirado
-      } else {
-        console.warn('El token no tiene un campo de expiración (exp)');
-        return false; // Si no hay campo exp, asumimos que no ha expirado
-      }
-    } catch (e) {
-      console.error('Error al verificar la expiración del token:', e);
-      return true; // Si hay un error, asumimos que el token no es válido
-    }
-  }
-  
 
   /**
    * Obtiene el username del usuario actual desde el token JWT

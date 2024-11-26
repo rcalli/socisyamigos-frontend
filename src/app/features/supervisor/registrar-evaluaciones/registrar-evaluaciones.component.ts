@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PPPEvaluacionService } from '../../../core/services/ppp-evaluacion.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SidebarSupervisorComponent } from "../../sidebar/sidebar-supervisor/sidebar-supervisor.component";
+import { HeaderComponent } from "../../header/header.component";
 
 @Component({
   selector: 'app-registrar-evaluaciones',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, SidebarSupervisorComponent, HeaderComponent],
   templateUrl: './registrar-evaluaciones.component.html',
   styleUrl: './registrar-evaluaciones.component.css'
 })
