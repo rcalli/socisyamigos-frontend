@@ -6,11 +6,12 @@ import { AuthService } from '../../../core/services/auth.service';
 import { Rol } from '../../../shared/models/rol';
 import { HeaderComponent } from "../../header/header.component";
 import { SidebarEstudianteComponent } from "../../sidebar/sidebar-estudiante/sidebar-estudiante.component";
+import { ChartModule } from 'primeng/chart';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, SidebarEstudianteComponent],
+  imports: [CommonModule, HeaderComponent, SidebarEstudianteComponent, ChartModule],
   templateUrl: './consultar-estudiante.component.html',
   styleUrl: './consultar-estudiante.component.css'
 })
@@ -18,6 +19,11 @@ export class ConsultarEstudianteComponent {
   detallesPPP: DetallePPP[] = [];
   roles: Rol[] = [];
   currentRole: string = ''; // Variable para almacenar el rol principal (opcional)
+  completedCount: number = 0; // Cantidad de registros con estado 2
+  totalCount: number = 0; // Total de registros
+  completionPercentage: number = 0; // Porcentaje calculado
+  chartData: any; // Configuración de datos del gráfico
+  chartOptions: any; // Opciones del gráfico
   constructor(private detallePPPService: DetallePPPService, private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -66,10 +72,38 @@ export class ConsultarEstudianteComponent {
       (data: DetallePPP[]) => {
         console.log('Datos obtenidos:', data);
         this.detallesPPP = data;
+        this.totalCount = data.length;
+        this.completedCount = data.filter(d => d.estado === 2).length;
+        this.completionPercentage = Math.round((this.completedCount / this.totalCount) * 100);
+        this.updateChart();
       },
       (error) => {
         console.error('Error al obtener los detalles:', error);
       }
     );
+  }
+  updateChart(): void {
+    this.chartData = {
+      labels: ['Completado', 'Pendiente'],
+      datasets: [
+        {
+          data: [this.completionPercentage, 100 - this.completionPercentage],
+          backgroundColor: ['#4CAF50', '#E0E0E0'], // Verde y gris
+          hoverBackgroundColor: ['#45A049', '#D6D6D6']
+        }
+      ]
+    };
+
+    this.chartOptions = {
+      plugins: {
+        tooltip: {
+          enabled: false
+        },
+        legend: {
+          display: false
+        }
+      },
+      cutout: '70%' // Para hacer el gráfico tipo "doughnut"
+    };
   }
 }

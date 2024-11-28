@@ -26,6 +26,7 @@ export class LoginComponent {
         console.error('Error al iniciar sesión:', err);
       }
     });
+  
   }
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword; // Alterna entre true y false

@@ -53,6 +53,13 @@
       <div class="info-item" *ngIf="!detallesPPP[0].ppp?.supervisor?.persona">
         <strong>Supervisor:</strong> No asignado
       </div>
+      <div class="chart-container">
+        <p-chart type="doughnut" [data]="chartData" [options]="chartOptions"></p-chart>
+        <div class="chart-label">
+          <span>{{ completionPercentage }}%</span>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

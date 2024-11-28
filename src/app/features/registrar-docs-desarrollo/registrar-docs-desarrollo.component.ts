@@ -13,13 +13,13 @@ import { SidebarEstudianteComponent } from "../sidebar/sidebar-estudiante/sideba
 import { ChartModule } from 'primeng/chart';
 
 @Component({
-  selector: 'app-registrar-docs-inicio',
+  selector: 'app-registrar-docs-desarrollo',
   standalone: true,
   imports: [CommonModule, HeaderComponent, SidebarEstudianteComponent, ChartModule],
-  templateUrl: './registrar-docs-inicio.component.html',
-  styleUrls: ['./registrar-docs-inicio.component.css']
+  templateUrl: './registrar-docs-desarrollo.component.html',
+  styleUrls: ['./registrar-docs-desarrollo.component.css']
 })
-export class RegistrarDocsInicioComponent implements OnInit {
+export class RegistrarDocsDesarrolloComponent implements OnInit {
   detallesPPP: DetallePPP[] = [];
   roles: Rol[] = [];
   currentRole: string = '';
@@ -77,7 +77,7 @@ export class RegistrarDocsInicioComponent implements OnInit {
   fetchDetallesPPP(userId: number): void {
     this.detallePPPService.getDetallesPPP(userId).subscribe({
       next: (data: DetallePPP[]) => {
-        this.detallesPPP = data.filter((detalle) => detalle.proceso.id === 1);
+        this.detallesPPP = data.filter((detalle) => detalle.proceso.id === 2);
         this.loadDocsForDetalles();
         this.calculateStateCounts();
         this.updateChart();
@@ -155,7 +155,7 @@ export class RegistrarDocsInicioComponent implements OnInit {
       }
     }
   }
-  
+
   downloadDoc(fileName: string): void {
     this.docService.downloadFile(fileName).subscribe({
       next: (blob: Blob) => {

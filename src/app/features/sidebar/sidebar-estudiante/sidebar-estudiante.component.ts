@@ -17,7 +17,7 @@ export class SidebarEstudianteComponent implements OnInit {
     { label: 'Consultar PPP', icon: 'pi pi-home', link: "/consultar-estudiante" },
     { label: 'Registrar Solicitud', icon: 'pi pi-file', link: "/registrar-solicitud-ppp" },
     { label: 'Registrar Documentos de Inicio', icon: 'pi pi-shopping-cart', link: "/doc-inicio" },
-    { label: 'Registrar Documentos de Desarrollo', icon: 'pi pi-box', link: "" },
+    { label: 'Registrar Documentos de Desarrollo', icon: 'pi pi-box', link: "/doc-desarrollo" },
     { label: 'Cerrar Sesion', icon: 'pi pi-box', link: "/login" },
   ];
 

@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthInterceptor } from './core/auth.interceptor';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     HttpClientModule,

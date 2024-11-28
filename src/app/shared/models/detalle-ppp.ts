@@ -11,6 +11,9 @@ export class DetallePPP {
   persona: Persona;
   orden: number;
   estado: number;
+  progress?: number; // Progreso específico de la subida
+  uploading?: boolean; // Estado de subida
+  message?: string; // Mensaje específico
 
   constructor(
     id: number = 0,
@@ -19,7 +22,7 @@ export class DetallePPP {
     requisito: Requisito = new Requisito(),
     persona: Persona = new Persona(),
     orden: number = 0,
-    estado: number = 0
+    estado: number = 0,
   ) {
     this.id = id;
     this.ppp = ppp;
