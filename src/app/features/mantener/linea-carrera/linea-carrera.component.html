@@ -1,67 +1,132 @@
+<app-header>
+
+</app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
 <div class="container">
   <h2>Linea Carrera Management</h2>
 
-  <!-- List of Linea_Carreras -->
-  <table>
-    <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Estado</th>
-      <th>Carrera</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let lineaCarrera of lineaCarreras">
-      <td>{{ lineaCarrera.nombre }}</td>
-      <td>{{ lineaCarrera.estado }}</td>
-      <td>{{ lineaCarrera.carrera.nombre }}</td>
-      <td>
-        <button (click)="selectLineaCarrera(lineaCarrera)">Edit</button>
-        <button (click)="deleteLineaCarrera(lineaCarrera.id)">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <!-- PrimeNG Table with Pagination -->
+  <p-table
+    [value]="lineaCarreras"
+    [paginator]="true"
+    [rows]="5"
+    [responsiveLayout]="'scroll'"
+    selectionMode="single"
+    [(selection)]="selectedLineaCarrera"
+    [style]="{ width: '100%' }"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Carrera</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lineaCarrera>
+      <tr>
+        <td>{{ lineaCarrera.nombre }}</td>
+        <td>{{ lineaCarrera.estado }}</td>
+        <td>{{ lineaCarrera.carrera.nombre }}</td>
+        <td>
+          <button
+            pButton
+            type="button"
+            label="Edit"
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-info p-mr-2"
+            (click)="selectLineaCarrera(lineaCarrera)"
+          ></button>
+          <button
+            pButton
+            type="button"
+            label="Delete"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteLineaCarrera(lineaCarrera.id)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 
   <!-- Form for creating/updating -->
-  <div *ngIf="selectedLineaCarrera">
+  <div *ngIf="selectedLineaCarrera" class="p-mt-3">
     <h3>{{ selectedLineaCarrera.id ? 'Edit' : 'Create' }} Linea Carrera</h3>
-    <form (ngSubmit)="saveLineaCarrera()">
-      <label for="nombre">Nombre:</label>
-      <input
-        type="text"
-        id="nombre"
-        [(ngModel)]="selectedLineaCarrera.nombre"
-        name="nombre"
-        required
-      />
+    <form (ngSubmit)="saveLineaCarrera()" class="p-fluid">
+      <div class="p-field">
+        <label for="nombre">Nombre:</label>
+        <input
+          pInputText
+          type="text"
+          id="nombre"
+          [(ngModel)]="selectedLineaCarrera.nombre"
+          name="nombre"
+          required
+        />
+      </div>
 
-      <label for="estado">Estado:</label>
-      <input
-        type="number"
-        id="estado"
-        [(ngModel)]="selectedLineaCarrera.estado"
-        name="estado"
-        required
-      />
+      <div class="p-field">
+        <label for="estado">Estado:</label>
+        <p-inputNumber
+          id="estado"
+          [(ngModel)]="selectedLineaCarrera.estado"
+          name="estado"
+          [useGrouping]="false"
+          required
+        ></p-inputNumber>
+      </div>
 
-      <label for="carrera">Carrera:</label>
-      <select
-        id="carrera"
-        [(ngModel)]="selectedLineaCarrera.carrera"
-        name="carrera"
-        required
-      >
-        <option *ngFor="let carrera of carreras" [ngValue]="carrera">
-          {{ carrera.nombre }}
-        </option>
-      </select>
 
-      <button type="submit">Save</button>
-      <button type="button" (click)="selectedLineaCarrera = null">Cancel</button>
+      <div class="p-field">
+        <label for="carrera">Carrera:</label>
+        <p-dropdown
+          id="carrera"
+          [options]="carreras"
+          [(ngModel)]="selectedLineaCarrera.carrera"
+          name="carrera"
+          optionLabel="nombre"
+          placeholder="Select a Carrera"
+          required
+        ></p-dropdown>
+      </div>
+
+      <div class="p-d-flex p-jc-end">
+        <button
+          pButton
+          type="submit"
+          label="Save"
+          icon="pi pi-check"
+          class="p-button-success p-mr-2"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Cancel"
+          icon="pi pi-times"
+          class="p-button-secondary"
+          (click)="selectedLineaCarrera = null"
+        ></button>
+      </div>
     </form>
   </div>
 
-  <button (click)="newLineaCarrera()">New Linea Carrera</button>
+  <!-- Button to create a new Linea Carrera -->
+  <div class="p-mt-3">
+    <button
+      pButton
+      type="button"
+      label="New Linea Carrera"
+      icon="pi pi-plus"
+      class="p-button-primary"
+      (click)="newLineaCarrera()"
+    ></button>
+  </div>
+
+</div>
+
+  </div>
 </div>

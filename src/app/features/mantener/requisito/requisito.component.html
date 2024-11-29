@@ -1,8 +1,13 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-success"
         (click)="showDialogCreate()" style="margin-bottom: 20px;"></button>
 
-    
+
 
 <p-table [value]="requisitos" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }"
     [rowsPerPageOptions]="[5, 10, 20]">
@@ -54,3 +59,5 @@
 </p-dialog>
 <p-toast />
 <p-confirmDialog />
+</div>
+</div>

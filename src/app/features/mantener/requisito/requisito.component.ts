@@ -11,12 +11,14 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RequisitoService } from '../../../core/services/requisito.service';
 import { Requisito } from '../../../shared/models/requisito';
+import {HeaderComponent} from '../../header/header.component';
+import {SidebarEstudianteComponent} from '../../sidebar/sidebar-estudiante/sidebar-estudiante.component';
 
 @Component({
   selector: 'app-requisito',
   standalone: true,
-  imports: [TableModule, ButtonModule,DialogModule,RouterModule,InputTextModule,
-    FormsModule,ConfirmDialogModule,ToastModule, DropdownModule],
+  imports: [TableModule, ButtonModule, DialogModule, RouterModule, InputTextModule,
+    FormsModule, ConfirmDialogModule, ToastModule, DropdownModule, HeaderComponent, SidebarEstudianteComponent],
   templateUrl: './requisito.component.html',
   styleUrl: './requisito.component.css'
 })
@@ -27,7 +29,7 @@ export class RequisitoComponent {
   requisito=new Requisito();
   titulo:string='';
   opc:string='';
-  op = 0; 
+  op = 0;
   constructor(
     private requisitoService: RequisitoService,
     private messageService: MessageService
@@ -42,17 +44,17 @@ export class RequisitoComponent {
   }
   showDialogCreate(){
     this.titulo="Crear Requisito"
-    this.opc="Save";   
+    this.opc="Save";
     this.op=0;
     this.visible = true; // Cambia la visibilidad del diálogo
   }
   showDialogEdit(id:number){
     this.titulo="Editar Requisito"
-    this.opc="Editar"; 
+    this.opc="Editar";
    this.requisitoService.getRequisitoById(id).subscribe((data)=>{
-      this.requisito=data; 
-      this.op=1;     
-   });    
+      this.requisito=data;
+      this.op=1;
+   });
     this.visible = true; // Cambia la visibilidad del diálogo
   }
   deleteRequisito(id:number){
@@ -109,7 +111,7 @@ export class RequisitoComponent {
           detail: 'No se pudo Crear la Requisito',
         });
       },
-    });    
+    });
     this.visible = false;
   }
   editRequisito(){
@@ -131,13 +133,13 @@ export class RequisitoComponent {
           detail: 'No se pudo Editar la Requisito',
         });
       },
-    });    
+    });
     this.visible = false;
   }
   limpiar(){
     this.titulo='';
     this.opc='';
-    this.op = 0; 
+    this.op = 0;
     this.requisito.id=0;
     this.requisito.nombre='';
     this.requisito.descripcion='';
