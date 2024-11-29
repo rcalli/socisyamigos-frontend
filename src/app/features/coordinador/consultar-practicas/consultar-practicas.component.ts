@@ -1,44 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {LineaCarrera} from '../../../shared/models/linea-carrera';
-import {LineaCarreraService} from '../../../core/services/linea-carrera.service';
 import {Carrera} from '../../../shared/models/carrera';
-import {FormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-
-import {CommonModule} from '@angular/common';
+import {LineaCarreraService} from '../../../core/services/linea-carrera.service';
 import {CarreraService} from '../../../core/services/carrera.service';
-import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputNumberModule } from 'primeng/inputnumber';
-import {HeaderComponent} from '../../header/header.component';
-import {SidebarEstudianteComponent} from '../../sidebar/sidebar-estudiante/sidebar-estudiante.component';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {DialogModule} from 'primeng/dialog';
-import {ToastModule} from 'primeng/toast';
-import {Estudiante} from '../../../shared/models/estudiante';
 
 @Component({
-  selector: 'app-linea-carrera',
+  selector: 'app-consultar-practicas',
   standalone: true,
-  imports: [
-    RouterModule,
-    FormsModule, CommonModule, TableModule, ButtonModule, DropdownModule, InputTextModule, InputNumberModule, HeaderComponent, SidebarEstudianteComponent, ConfirmDialogModule, DialogModule, ToastModule
-  ],
-  templateUrl: './linea-carrera.component.html',
-  styleUrl: './linea-carrera.component.css'
+  imports: [],
+  templateUrl: './consultar-practicas.component.html',
+  styleUrl: './consultar-practicas.component.css'
 })
-export class LineaCarreraComponent implements OnInit {
+export class ConsultarPracticasComponent {
   lineaCarreras: LineaCarrera[] = [];
   carreras: Carrera[] = [];
   selectedLineaCarrera: LineaCarrera | null = null;
-
-  visible:boolean=false;
-  isDeleteInProgress:boolean=false;
-  titulo:string='';
-  opc:string='';
-  op = 0;
 
   constructor(
     private lineaCarreraService: LineaCarreraService,

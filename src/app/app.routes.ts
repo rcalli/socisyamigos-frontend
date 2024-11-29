@@ -112,7 +112,19 @@ export const routes: Routes = [
     path: 'linea-carrera',
     loadChildren: () => import('./features/mantener/linea-carrera/linea-carrera.module').then(m => m.LineaCarreraModule),
     canActivate: [AuthGuard],
-    title: 'linea-carrera'
+    title: 'Mantener linea-carrera'
+  },
+  {
+    path: 'estudiante',
+    loadChildren: () => import('./features/mantener/estudiante/estudiante.module').then(m => m.EstudianteModule),
+    canActivate: [AuthGuard],
+    title: 'Mantener estudiante'
+  },
+  {
+    path: 'estadistica',
+    loadChildren: () => import('./features/coordinador/estadistica/estadistica.module').then(m => m.estadisticaModule),
+    canActivate: [AuthGuard],
+    title: 'Estadistica'
   },
   {
     path: 'doc-inicio',

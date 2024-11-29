@@ -8,7 +8,12 @@ import { Observable } from 'rxjs';
 export class PPPService {
   private apiUrl = 'http://localhost:8080/api/ppps'; // Cambia según tu configuración
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
+
+  getAllPPPs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
+  }
 
   getFilteredPPPs(processName: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/filtered/${processName}`);
