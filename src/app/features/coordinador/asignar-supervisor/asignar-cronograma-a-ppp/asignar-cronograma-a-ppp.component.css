@@ -1,0 +1,113 @@
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .agregar-btn {
+    margin-left: 10px;
+  }
+  
+  .cronograma-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cronograma-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cronograma-info p {
+    margin: 5px 0;
+  }
+  
+  .cronograma-actions button {
+    margin-left: 5px;
+  }
+  
+  .estado-realizado {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .estado-pendiente {
+    color: orange;
+    font-weight: bold;
+  }
+  /* Layout principal */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+app-sidebar {
+  flex: 0 0 250px; /* Anchura fija del sidebar */
+  height: 100%; /* Altura completa */
+  position: relative;
+  z-index: 1000;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1; /* Toma el resto del espacio */
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f8f9fa; /* Fondo claro */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Indicador de carga */
+.loading {
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  app-sidebar {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    flex: 1;
+    padding: 15px;
+  }
+}

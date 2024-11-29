@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-coordinador></app-sidebar-coordinador>
+  <div class="content">
+
+<div class="container">
+    <h1>Solicitud de Documentos Inicio PPP</h1>
+  
+    <!-- Barra de búsqueda y filtro -->
+    <div class="search-filter">
+      <input type="text" placeholder="Buscar..." class="search-input" />
+      <button class="filter-btn">🔍</button>
+    </div>
+  
+    <!-- Contenedor de tarjetas -->
+    <div class="ppp-cards">
+      <a 
+        *ngFor="let ppp of pppList" 
+        [routerLink]="['/validar-docs-inicio', ppp.idPPP]"
+        class="ppp-card-link"
+      >
+        <div class="ppp-card">
+          <div class="ppp-column">
+            <p class="ppp-label"><strong>Nombre:</strong></p>
+            <p>{{ ppp.nombreEstudiante }}</p>
+          </div>
+          <div class="ppp-column">
+            <p class="ppp-label"><strong>Empresa:</strong></p>
+            <p>{{ ppp.nombreEmpresa }}</p>
+          </div>
+          <div class="ppp-column">
+            <p class="ppp-label"><strong>Código:</strong></p>
+            <p>{{ ppp.codigoEstudiante }}</p>
+          </div>
+          <div class="ppp-column">
+            <p class="ppp-label"><strong>Estado:</strong></p>
+            <span 
+              [ngClass]="{
+                'estado-pendiente': ppp.estadoPPP === 1,
+                'estado-aceptado': [3, 5, 6, 7, 8].includes(ppp.estadoPPP),
+                'estado-rechazado': ppp.estadoPPP === 4
+              }">
+              {{ ppp.estadoPPP === 1 ? 'Pendiente' : [3, 5, 6, 7, 8].includes(ppp.estadoPPP) ? 'Aceptado' : 'Rechazado' 
+  }}
+</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+  

@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
+<div class="container">
+  <!-- Encabezado -->
+  <div class="header">
+    <h1>Estado de la práctica</h1>
+  </div>
+
+  <!-- Contenido -->
+  <div class="content">
+    <!-- Requisitos (Izquierda) -->
+    <div class="requisitos">
+      <div *ngFor="let detalle of detallesPPP" class="requisito-item">
+        <div class="requisito-info">
+          <h3>{{ detalle.requisito.nombre }}</h3>
+        </div>
+        <div class="requisito-acciones">
+          <button class="estado-btn" [ngClass]="{
+          completado: detalle.estado === 2,
+          pendiente: detalle.estado === 1,
+          rechazado: detalle.estado === 3
+        }">
+            {{ detalle.estado === 2 ? 'Completado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información Principal (Derecha) -->
+    <div class="info" *ngIf="detallesPPP.length > 0">
+      <!-- Tarjeta del Rol -->
+      <div class="rol-card" *ngIf="roles.length > 0">
+        <div class="rol-header">{{ currentRole }}</div> <!-- Muestra el rol principal -->
+        <div class="rol-name">
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.nombre }}
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.apepat }}
+          {{ detallesPPP[0].ppp.matricula.estudiante.persona.apemat }}
+        </div>
+      </div>
+
+      <!-- Información Principal -->
+      <div class="info-item"><strong>Empresa:</strong> {{ detallesPPP[0].ppp.empresa.nombre }}</div>
+      <div class="info-item"><strong>Fecha Inicio:</strong> {{ detallesPPP[0].ppp.fechaInicio | date }}</div>
+      <div class="info-item"><strong>Fecha Fin:</strong> {{ detallesPPP[0].ppp.fechaFin | date }}</div>
+      <div class="info-item" *ngIf="detallesPPP[0].ppp?.supervisor?.persona">
+        <strong>Supervisor:</strong>
+        {{ detallesPPP[0].ppp.supervisor.persona.nombre || 'No asignado' }}
+        {{ detallesPPP[0].ppp.supervisor.persona.apepat || '' }}
+      </div>
+      <div class="info-item" *ngIf="!detallesPPP[0].ppp?.supervisor?.persona">
+        <strong>Supervisor:</strong> No asignado
+      </div>
+      <div class="chart-container">
+        <p-chart type="doughnut" [data]="chartData" [options]="chartOptions"></p-chart>
+        <div class="chart-label">
+          <span>{{ completionPercentage }}%</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+</div>

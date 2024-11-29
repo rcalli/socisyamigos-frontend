@@ -1,0 +1,165 @@
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Fondo suave */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+/* Títulos */
+h1, h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  background-color: #004085; /* Azul oscuro */
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Información del estudiante */
+.info-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ffffff; /* Blanco */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas */
+.info-section p {
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.info-section strong {
+  color: #0056b3; /* Azul claro */
+  font-weight: bold;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Contenedor de los botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Botón general */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón de volver */
+button.volver {
+  background-color: #6c757d; /* Gris */
+  color: #fff;
+}
+
+button.volver:hover {
+  background-color: #5a6268; /* Gris oscuro */
+}
+
+/* Botón de aceptar */
+button.aceptar {
+  background-color: #28a745; /* Verde */
+  color: #fff;
+}
+
+button.aceptar:hover {
+  background-color: #218838; /* Verde oscuro */
+}
+
+/* Botón de rechazar */
+button.rechazar {
+  background-color: #dc3545; /* Rojo */
+  color: #fff;
+}
+
+button.rechazar:hover {
+  background-color: #c82333; /* Rojo oscuro */
+}
+/* Layout principal */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+app-sidebar {
+  flex: 0 0 250px; /* Anchura fija del sidebar */
+  height: 100%; /* Altura completa */
+  position: relative;
+  z-index: 1000;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1; /* Toma el resto del espacio */
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f8f9fa; /* Fondo claro */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Indicador de carga */
+.loading {
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  app-sidebar {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    flex: 1;
+    padding: 15px;
+  }
+}

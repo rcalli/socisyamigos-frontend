@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0; /* Elimina los márgenes de html y body */
+  padding: 0; /* Elimina el padding */
+  width: 100%; /* Asegura que html y body ocupen el 100% del ancho */
+  height: 100%; /* Asegura que html y body ocupen el 100% de la altura */
+  overflow: hidden; /* Evita el scroll */
+}
+
+body {
+ /* background-image: url('../public/lima2.jpg'); /* Cambia la ruta si tu imagen está en otro lugar */
+  background-size: cover; /* Hace que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}

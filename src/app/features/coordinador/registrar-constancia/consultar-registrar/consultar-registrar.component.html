@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-coordinador></app-sidebar-coordinador>
+  <div class="content">
+<div class="container">
+    <h1>Registrar Constancia</h1>
+  
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar estudiante..." />
+      <button><i class="fa fa-filter"></i></button>
+      <button><i class="fa fa-sort"></i></button>
+    </div>
+  
+    <div *ngIf="loading">Cargando datos...</div>
+    <div *ngIf="error">{{ error }}</div>
+  
+    <div *ngIf="!loading && !error" class="cards-container">
+      <div *ngFor="let ppp of pppList" class="card">
+        <div class="card-content">
+          <div class="details">
+            <p><strong>Estudiante:</strong> {{ ppp.matricula.estudiante.persona.nombre }} {{ ppp.matricula.estudiante.persona.apepat }} {{ ppp.matricula.estudiante.persona.apemat }}</p>
+            <p><strong>Código:</strong> {{ ppp.matricula.estudiante.codigo }}</p>
+            <p><strong>Empresa:</strong> {{ ppp.empresa.nombre }}</p>
+            <p><strong>Correo de Empresa:</strong> {{ ppp.empresa.email }}</p>
+            <p><strong>Supervisor:</strong> {{ ppp.supervisor?.persona?.nombre }}</p>
+            <p><strong>Fecha de Inicio:</strong> {{ ppp.fechaInicio | date }}</p>
+          </div>
+          <div class="status">
+            <span
+              [ngClass]="{
+                'estado-pendiente': ppp.estado === 7,
+                'estado-completado': ppp.estado === 9,
+              }"
+            >
+              {{ ppp.estado === 7 ? 'Pendiente' : 'Completado' }}
+            </span>
+            <div class="buttons">
+              <button class="edit-btn" [routerLink]="['/registrar-constancia-ppp', ppp.id]">
+                <i class="fa fa-pencil"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

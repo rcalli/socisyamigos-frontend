@@ -1,2 +1,7 @@
-export class Rol {
-}
+export interface Rol {
+    id: number;
+    nombre: string;
+    url: string;
+    estado: number;
+  }
+  

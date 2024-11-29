@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-supervisor></app-sidebar-supervisor>
+  <div class="content">
+
+<div class="container">
+    <h1>Registrar Evaluacion</h1>
+  
+    <!-- Indicador de carga -->
+    <div *ngIf="isLoading" class="loading">
+      Cargando datos...
+    </div>
+  
+    <!-- Lista de PPP -->
+    <div *ngIf="!isLoading && pppData.length > 0">
+      <div *ngFor="let ppp of pppData" class="card">
+        <div class="card-content">
+          <p><strong>Estudiante:</strong> {{ ppp.matricula.estudiante.persona.nombre }}</p>
+          <p><strong>Empresa:</strong> {{ ppp.empresa.nombre }}</p>
+          <p><strong>Estado:</strong> 
+            <span 
+              [ngClass]="{
+                'estado-aceptado': ppp.estado === 1,
+                'estado-pendiente': ppp.estado === 0
+              }">
+              {{ ppp.estado === 1 ? 'Aceptado' : 'Pendiente' }}
+            </span>
+          </p>
+          <button 
+      class="btn-evaluar" 
+      [routerLink]="['/registrar-evaluaciones', ppp.id]"
+    >
+      Evaluar
+    </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mensaje si no hay datos -->
+    <div *ngIf="!isLoading && pppData.length === 0">
+      <p>No se encontraron registros de PPP.</p>
+    </div>
+  </div>
+</div>
+</div>
+  

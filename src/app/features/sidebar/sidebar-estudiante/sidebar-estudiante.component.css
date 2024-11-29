@@ -1,0 +1,82 @@
+.sidebar {
+  width: 250px; /* Ajusta el ancho según tu diseño */
+  background-color: #ffffff; /* Color blanco */
+  height: calc(100vh - 70px); /* Resta la altura del header (ajusta según sea necesario) */
+  overflow-y: auto; /* Permite desplazamiento si el contenido es más grande */
+  border-right: 1px solid #e0e0e0; /* Línea divisoria opcional */
+  transition: width 0.3s ease;
+}
+
+  .nav-link {
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link:hover {
+    background-color: #e9ecef; /* Fondo al hacer hover */
+    border-radius: 5px;
+    color: #007bff; /* Color de texto al pasar el cursor */
+  }
+  
+  .nav-link i {
+    font-size: 16px;
+    color: #8f9bb3; /* Color de los íconos */
+  }
+  
+  .nav-link:hover i {
+    color: #007bff; /* Íconos cambian de color en hover */
+  }
+
+
+  
+  .sidebar.collapsed {
+    width: 60px; /* Ancho del sidebar contraído */
+  }
+  
+  .sidebar.collapsed .nav-link span {
+    display: none;
+  }
+  
+  .sidebar {
+    background-color: white; /* Fondo blanco */
+    /* Agrega otros estilos necesarios para tu sidebar, como ancho, alto, etc. */
+}
+
+.sidebar ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding predeterminado */
+}
+
+.sidebar li {
+    padding: 5px 3px; /* Ajusta el padding según tu preferencia */
+    border-bottom: 1px solid #ddd; /* Línea horizontal entre ítems */
+}
+
+/* Opcional: Si quieres eliminar la última línea horizontal */
+.sidebar li:last-child {
+    border-bottom: none;
+}
+.sidebar {
+  transition: all 0.3s ease-in-out;
+  width: 250px; /* Anchura estándar */
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Anchura colapsada */
+}
+
+.nav-link {
+  padding: 10px 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nav-link i {
+  font-size: 18px;
+}

@@ -1,0 +1,118 @@
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Contenido */
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Requisitos */
+.requisitos {
+  flex: 2;
+}
+
+.requisito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.completar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.completar-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Información Principal */
+.info {
+  flex: 1.5;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.rol-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1d3557; /* Azul oscuro */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.rol-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.rol-name {
+  font-size: 18px;
+}
+
+/* Botón genérico */
+.estado-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: not-allowed;
+  color: white;
+  font-weight: bold;
+}
+
+/* Botón Pendiente */
+.estado-btn.pendiente {
+  background-color: #ccc; /* Gris */
+  color: black;
+}
+
+/* Botón Completado */
+.estado-btn.completado {
+  background-color: #28a745; /* Verde */
+  color: white;
+}
+
+/* Botón Rechazado */
+.estado-btn.rechazado {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+}

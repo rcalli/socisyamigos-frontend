@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-coordinador></app-sidebar-coordinador>
+  <div class="content">
+<div class="container">
+  <h1>Validar Documentos Inicio</h1>
+  <h2>Datos Estudiante:</h2>
+  <div class="info-section">
+    <p><strong>Estudiante:</strong> {{ ppp.matricula.estudiante.persona.nombre }}</p>
+    <p><strong>DNI:</strong> {{ ppp.matricula.estudiante.persona.dni }}</p>
+    <p><strong>Programa de estudio por plan:</strong> {{ ppp.matricula.plan_carrera.carrera.nombre }}</p>
+    <p><strong>Plan:</strong> {{ ppp.matricula.plan_carrera.plan.nombre }}</p>
+    <p><strong>Línea de trabajo:</strong> {{ ppp.linea_carrera.nombre }}</p>
+    <p><strong>Dirección de domicilio:</strong> {{ ppp.matricula.estudiante.persona.direccion }}</p>
+    <p><strong>Código:</strong> {{ ppp.matricula.estudiante.codigo }}</p>
+    <p><strong>Correo:</strong> {{ ppp.matricula.estudiante.persona.correo }}</p>
+    <p><strong>Teléfono:</strong> {{ ppp.matricula.estudiante.persona.telefono }}</p>
+  </div>
+  <div class="buttons">
+    <button class="volver" (click)="volver()">Volver</button>
+    <button class="aceptar" (click)="aceptar()">Aceptar</button>
+    <button class="rechazar" (click)="rechazar()">Rechazar</button>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,62 @@
+.menu-icon {
+  margin-left: 12px;
+    color: white;
+  }
+  .navbar-toggler {
+    background-color: transparent !important; /* Fondo transparente */
+    border: none; /* Eliminar borde */
+  }
+  
+
+  .grid-icon {
+    font-size: 1.8rem; /* Ajusta el tamaño del icono */
+    color: white;       /* Color blanco */
+    margin-right: 15px;  /* Separación de la caja de nombre */
+  }
+  
+  .user-info { /* Clase para el contenedor de la información del usuario */
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center; /* Alinea verticalmente el contenido */
+  }
+  .navbar-nav {
+    align-items: center;
+  }
+  header {
+    height: 10px; /* Altura del header */
+    background-color: #002855; /* Azul oscuro (color del header) */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+  /* En tu archivo de estilos */
+  .logo-container {
+    position: relative;
+    margin-left: 60px ;
+  }
+  
+  img.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar en el contenedor */
+    width: 40px;
+    height: auto;
+  }/* En tu archivo de estilos */
+.navbar { /* O el selector que uses para tu header */
+  background-color: #002855;
+  height: 72px;
+   /* Ajusta a la altura deseada */
+}
+
+.pi-bars {
+  margin-right: 13px; /* Ajusta el valor */
+}
+
+.header-container{ /* o el contenedor de tu header */
+  display: flex;
+  gap: 1rem; /* ajusta el valor que necesites */
+  justify-content: flex-start; /* para que se alinie a la izquierda, puedes omitirlo si es el comportamiento por defecto */
+}

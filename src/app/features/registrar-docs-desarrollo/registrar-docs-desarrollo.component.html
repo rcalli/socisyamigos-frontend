@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="layout">
+  <app-sidebar-estudiante></app-sidebar-estudiante>
+  <div class="content">
+
+    <div class="container">
+      <div class="header">
+        <h1>Registrar Documentos de Desarrollo</h1>
+      </div>
+
+      <div class="content">
+        <div class="requisitos">
+          <div *ngFor="let detalle of detallesPPP" class="requisito-item">
+            <div class="requisito-info">
+              <h3>{{ detalle.requisito.nombre }}</h3>
+            </div>
+            <div class="requisito-acciones">
+              <button
+                class="estado-btn"
+                [ngClass]="{
+                  completado: detalle.estado === 1 || detalle.estado === 2,
+                  pendiente: detalle.estado === 0,
+                  rechazado: detalle.estado === 3
+                }"
+                disabled
+              >
+                {{ detalle.estado === 1 || detalle.estado === 2 ? 'Registrado' : detalle.estado === 3 ? 'Rechazado' : 'Pendiente' }}
+              </button>
+
+              <div class="file-upload">
+                <input
+                  type="file"
+                  [id]="'fileInput_' + detalle.id"
+                  (change)="selectFile($event, detalle)"
+                  [disabled]="uploading"
+                  style="display: none"
+                >
+                <label [for]="'fileInput_' + detalle.id" class="upload-btn" [class.disabled]="uploading">
+                  <i class="pi pi-upload"></i>
+                  {{ uploading ? 'Subiendo...' : 'Subir documento' }}
+                </label>
+
+                <div *ngIf="progress > 0" class="progress-container">
+                  <div class="progress">
+                    <div class="progress-bar" [style.width.%]="progress">
+                      {{ progress }}%
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="message" class="message" [class.error]="message.includes('Error')">
+                  {{ message }}
+                </div>
+
+                <!-- Lista de documentos asociados a este detalle -->
+                <div *ngIf="docsByDetalle[detalle.id]" class="doc-list">
+                  <div *ngFor="let doc of docsByDetalle[detalle.id]" class="doc-item">
+                    <span>{{ doc.nombre }}</span>
+                    <button (click)="downloadDoc(doc.ruta_archivo)" class="download-btn">
+                      <i class="pi pi-download"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <p-chart type="doughnut" [data]="chartData" [options]="chartOptions"></p-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

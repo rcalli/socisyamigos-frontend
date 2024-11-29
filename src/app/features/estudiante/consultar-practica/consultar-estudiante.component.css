@@ -1,0 +1,204 @@
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: calc(100vh - 60px); /* Ajusta la altura total para el contenido */
+  overflow: hidden;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Contenido */
+.content {
+  display: flex;
+  gap: 20px;
+  flex: 1; /* Asegura que el contenido ocupe el espacio restante */
+  overflow-y: auto; /* Habilita el scroll vertical */
+}
+
+/* Requisitos */
+.requisitos {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; /* Habilita el scroll para la lista de requisitos */
+}
+
+.requisito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.completar-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Información Principal */
+.info {
+  flex: 1.5;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto; /* Habilita el scroll para la información */
+}
+
+.rol-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1d3557; /* Azul oscuro */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.rol-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.rol-name {
+  font-size: 18px;
+}
+
+/* Botón genérico */
+.estado-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: not-allowed;
+  color: white;
+  font-weight: bold;
+}
+
+/* Botón Pendiente */
+.estado-btn.pendiente {
+  background-color: #ccc; /* Gris */
+  color: black;
+}
+
+/* Botón Completado */
+.estado-btn.completado {
+  background-color: #28a745; /* Verde */
+  color: white;
+}
+
+/* Botón Rechazado */
+.estado-btn.rechazado {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+}
+
+/* Layout principal */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Evita scroll horizontal no deseado */
+}
+
+/* Sidebar */
+app-sidebar {
+  flex: 0 0 250px; /* Anchura fija del sidebar */
+  height: 100%; /* Altura completa */
+  position: relative;
+  z-index: 1000;
+  background-color: #f1f1f1;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1; /* Toma el resto del espacio */
+  padding: 20px;
+  overflow-y: auto; /* Habilita el scroll vertical */
+  background-color: #f8f9fa; /* Fondo claro */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Indicador de carga */
+.loading {
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+}
+
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  app-sidebar {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    flex: 1;
+    padding: 15px;
+  }
+}
+.chart-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.chart-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+

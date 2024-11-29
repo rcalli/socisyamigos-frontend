@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { RegistrarDocsInicioComponent} from './registrar-docs-inicio.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: RegistrarDocsInicioComponent }
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes)]
 })
-export class HomeModule {}
+export class RegistrarDocsInicioModule {}
